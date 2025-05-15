@@ -1,0 +1,22 @@
+---
+import Container from "@/components/layout/Container.astro"
+import Header from "@/components/layout/Header.astro"
+import "@/styles/global.css"
+---
+
+<!doctype html>
+<html lang="en" data-theme="light" class="scroll-pt-20 scroll-smooth antialiased">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class="relative bg-paper text-ink">
+		<Header />
+		<main class="flex pt-30 px-4 max-w-4xl mx-auto w-full">
+			<slot />
+		</main>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+---
+const { outerClass } = Astro.props
+---
+<div class:list={["m-auto", outerClass]}>
+	<slot />	
+</div>

@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+
+@layer base {
+
+  /* Thanks to https://medium.com/@kevstrosky/theme-colors-with-tailwind-css-v4-0-and-next-themes-dark-light-custom-mode-36dca1e20419 */
+
+  /* Light Mode Colours */
+  [data-theme="light"] {
+    --zenPaper: #FFFCF0;     /* Background */
+    --zenInk: #2e2e2e;       /* Text */
+    --zenAccent: #f76f53;    /* Accent */
+    --zenMuted: rgba(0, 0, 0, 0.60);
+    --zenSubtle: rgba(0, 0, 0, 0.30);
+  }
+  
+  /* Dark Mode Colours */
+  [data-theme="dark"] {
+    --zenPaper: #1f1f1f;     /* Background */
+    --zenInk: #d1cfc0;       /* Text */
+    --zenAccent: #f76f53;    /* Accent */
+    --zenMuted: rgba(255, 255, 255, 0.60);
+    --zenSubtle: rgba(255, 255, 255, 0.20);
+  }  
+}
+
+@theme {
+
+  /* Disable default colors to prevent their use; feel free to re-enable as needed. */
+  --color-amber-*: initial;
+  --color-lime-*: initial;
+  --color-emerald-*: initial;
+  --color-teal-*: initial;
+  --color-sky-*: initial;
+  --color-indigo-*: initial;
+  --color-violet-*: initial;
+  --color-fuchsia-*: initial;
+  --color-pink-*: initial;
+  --color-rose-*: initial;
+  --color-slate-*: initial;
+  --color-zinc-*: initial;
+  --color-neutral-*: initial;
+  --color-stone-*: initial;
+
+}
+
+@theme inline {
+  --color-paper: var(--zenPaper);
+  --color-ink: var(--zenInk);
+  --color-accent: var(--zenAccent);
+  --color-muted: var(--zenMuted);
+  --color-subtle: var(--zenSubtle);
+
+  --font-inter: "Inter Variable", sans-serif;
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--zenMuted);
+    color: transparent;
+    opacity: 0.20;
+  }
+
+  .text-stroke-2 {
+    -webkit-text-stroke: 2px var(--zenMuted);
+    color: transparent;
+    opacity: 0.20;
+  }
+}

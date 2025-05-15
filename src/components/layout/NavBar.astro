@@ -1,0 +1,11 @@
+---
+---
+<nav>
+    <div class="flex flex-row justify-between items-center p-4">
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-6 text-md ">
+        <a href="/about" class="opacity-70 hover:opacity-100 transition-opacity duration-300" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <a href="/contact" class="opacity-70 hover:opacity-100 transition-opacity duration-300" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
+      </div>
+    </div>
+</nav>
