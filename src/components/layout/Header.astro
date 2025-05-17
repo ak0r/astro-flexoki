@@ -34,8 +34,9 @@ import Container from './Container.astro';
       </div>
     </div>
   </div>
+  
+  <!-- Main Navigation -->
   <Container outerClass="flex flex-col max-w-4xl px-4 py-2 mx-auto h-full">
-    <!-- Main Navigation -->
     <nav class="flex h-full w-full">
       <!-- Logo -->
       <a class="flex items-center gap-2" href="/">
@@ -68,6 +69,8 @@ import Container from './Container.astro';
       </div>
     </nav>
   </Container>
+  
+  <!-- Script to open mobile menu drawer -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const navBtn = document.getElementById("navBtn");
