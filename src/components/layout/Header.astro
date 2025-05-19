@@ -4,11 +4,11 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
 import Container from './Container.astro';
 ---
 
-<header class="fixed top-0 w-full h-[76px] border-b border-ink/10">
+<header class="fixed top-0 w-full h-[76px] border-b border-ink/10 z-50 backdrop-blur-lg">
 
   <!-- Mobile menu -->
-  <div id="navMenu" class="fixed backdrop-blur-lg bg-paper shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
-    <div class="flex flex-col w-full">
+  <div id="navMenu" class="fixed bg-paper shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
+    <div class="flex flex-col px-4 min-h-screen w-full bg-paper">
       <!-- Logo -->
       <div class="flex items-center justify-between font-medium px-4 py-2 h-[76px] border-b border-ink/10">
         <a class="flex items-center gap-2" href="/">
@@ -22,9 +22,8 @@ import Container from './Container.astro';
       </div>
       <!-- Links -->
       <div class="flex flex-col gap-3 py-8">
-        <a class="px-4 py-2 duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Categories</a>
-        <a class="px-4 py-2 duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Membership</a>
-        <a class="px-4 py-2 duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Resources</a>
+        <a href="/about" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <a href="/contact" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
       <!-- Subscribe button -->
       <div class="px-4 py-2">
@@ -36,8 +35,8 @@ import Container from './Container.astro';
   </div>
   
   <!-- Main Navigation -->
-  <Container outerClass="flex flex-col max-w-4xl px-4 py-2 mx-auto h-full">
-    <nav class="flex h-full w-full">
+  <Container outerClass="flex flex-col max-w-4xl px-2 py-2 mx-auto h-full">
+    <nav class="flex h-full w-full px-4 ">
       <!-- Logo -->
       <a class="flex items-center gap-2" href="/">
         <div class="text-lg font-bold">Umami</div>
@@ -45,9 +44,8 @@ import Container from './Container.astro';
 
       <!-- Centered Links (only visible on sm and up) -->
       <div class="hidden sm:flex flex-1 justify-center items-center gap-5 text-base">
-        <a class="duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Categories</a>
-        <a class="duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Membership</a>
-        <a class="duration-500 ease-in-out opacity-50 hover:opacity-100" href="/">Resources</a>
+        <a href="/about" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <a href="/contact" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
 
       <!-- Right section -->
