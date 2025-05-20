@@ -22,8 +22,8 @@ import Container from './Container.astro';
       </div>
       <!-- Links -->
       <div class="flex flex-col gap-3 py-8">
+        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
         <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-        <a href="/contact" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
       <!-- Subscribe button -->
       <div class="px-4 py-2">
@@ -33,7 +33,7 @@ import Container from './Container.astro';
       </div>
     </div>
   </div>
-  
+
   <!-- Main Navigation -->
   <Container outerClass="flex flex-col max-w-4xl px-2 py-2 mx-auto h-full">
     <nav class="flex h-full w-full px-4 ">
@@ -43,9 +43,9 @@ import Container from './Container.astro';
       </a>
 
       <!-- Centered Links (only visible on sm and up) -->
-      <div class="hidden sm:flex flex-1 justify-center items-center gap-5 text-base">
+      <div class="hidden sm:flex flex-1 justify-center items-center gap-4 text-base">
+        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
         <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-        <a href="/contact" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
 
       <!-- Right section -->
