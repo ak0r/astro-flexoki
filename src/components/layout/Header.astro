@@ -7,8 +7,8 @@ import Container from './Container.astro';
 <header class="fixed top-0 w-full h-[76px] border-b border-ink/10 z-50 backdrop-blur-lg">
 
   <!-- Mobile menu -->
-  <div id="navMenu" class="fixed bg-paper shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
-    <div class="flex flex-col px-4 min-h-screen w-full bg-paper">
+  <div id="navMenu" class="fixed bg-umami-bg shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
+    <div class="flex flex-col px-4 min-h-screen w-full bg-umami-bg">
       <!-- Logo -->
       <div class="flex items-center justify-between font-medium px-4 py-2 h-[76px] border-b border-ink/10">
         <a class="flex items-center gap-2" href="/">
@@ -22,12 +22,12 @@ import Container from './Container.astro';
       </div>
       <!-- Links -->
       <div class="flex flex-col gap-3 py-8">
-        <a href="/about" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-        <a href="/contact" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
+        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <a href="/contact" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
       <!-- Subscribe button -->
       <div class="px-4 py-2">
-        <button class="text-lg font-medium border rounded-3xl py-2 px-3 hover:bg-subtle/30">
+        <button class="text-lg font-medium border border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
           Subscribe
         </button>
       </div>
@@ -44,8 +44,8 @@ import Container from './Container.astro';
 
       <!-- Centered Links (only visible on sm and up) -->
       <div class="hidden sm:flex flex-1 justify-center items-center gap-5 text-base">
-        <a href="/about" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-        <a href="/contact" class="px-4 py-2 text-flexoki-tx-2 hover:text-flexoki-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
+        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <a href="/contact" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/contact' ? 'page' : undefined}>Contact</a>
       </div>
 
       <!-- Right section -->
@@ -54,8 +54,8 @@ import Container from './Container.astro';
         <ThemeSwitch />
 
         <!-- Subscribe button (only on sm and up) -->
-        <button class="text-base font-medium border rounded-3xl py-2 px-3 hidden sm:flex hover:bg-subtle/30">
-          Subscribe
+        <button class="text-base font-medium border-2 border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
+          <a href="#"> Subscribe </a>
         </button>
 
         <!-- Mobile nav button (only on small screens) -->
