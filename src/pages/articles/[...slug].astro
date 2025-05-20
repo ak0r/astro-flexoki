@@ -1,0 +1,19 @@
+---
+import { getCollection, type CollectionEntry  } from "astro:content";
+import PageLayout from "@/layouts/PageLayout.astro";
+import { getFormattedDate,slugify } from '@/utils/commonFunctions';
+import { getFilteredPosts } from "@/utils/getData";
+import SinglePost from "@/components/blog/SinglePost.astro";
+
+export async function getStaticPaths() {
+  const posts = await getFilteredPosts('blog')
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }))
+}
+
+const { post } = Astro.props
+---
+<SinglePost post={post} />

@@ -4,7 +4,6 @@ description: "This is my first post on this blog. I am excited to share my thoug
 publishedDate: 2023-10-01
 tags: ["introduction", "blog"]
 ---
-
 Lithium-ion batteries have played a vital role in the development of electric vehicles and we love them for that. But at the same time, lithium is expensive to produce, unstable in high temperatures, and a finite resource whose mining often comes with supply chain problems.
 Battery researchers and manufacturers have been assiduously searching for a more sustainable replacement. One intriguing alternative they’ve discovered is another chemical element: sodium.
 

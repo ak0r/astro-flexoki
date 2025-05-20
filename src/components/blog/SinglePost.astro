@@ -1,0 +1,31 @@
+---
+import { render } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getFormattedDate } from '@/utils/commonFunctions';
+import type { CollectionEntry } from 'astro:content';
+import Container from '@/components/layout/Container.astro';
+import RenderMarkdown from './RenderMarkdown.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>
+  isSearchable?: boolean
+}
+
+const { post, isSearchable = false } = Astro.props
+
+const { data: frontmatter } = post
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+
+const title = frontmatter.title
+const description = frontmatter.description
+const ogImage = frontmatter.coverImage
+const pubDate = frontmatter.publishedDate.toISOString()
+const isDraft = frontmatter.isDraft
+---
+<PageLayout>
+  <Container outerClass="px-6">
+    <RenderMarkdown>
+      <Content />
+    </RenderMarkdown>
+  </Container>
+</PageLayout>
