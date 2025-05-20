@@ -1,12 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
+import Container from './Container.astro';
 ---
 
-<header class="fixed top-0 w-full h-[76px] border-b border-ink/10">
+<header class="fixed top-0 w-full h-[76px] border-b border-ink/10 z-50 backdrop-blur-lg">
+
   <!-- Mobile menu -->
-  <div id="navMenu" class="fixed h-full backdrop-blur-lg bg-paper shadow-xl w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
-    <div class="flex flex-col w-full">
+  <div id="navMenu" class="fixed bg-umami-bg shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
+    <div class="flex flex-col px-4 min-h-screen w-full bg-umami-bg">
       <!-- Logo -->
       <div class="flex items-center justify-between font-medium px-4 py-2 h-[76px] border-b border-ink/10">
         <a class="flex items-center gap-2" href="/">
@@ -20,13 +22,12 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
       </div>
       <!-- Links -->
       <div class="flex flex-col gap-3 py-8">
-        <a class="px-4 py-2" href="/">Categories</a>
-        <a class="px-4 py-2" href="/">Membership</a>
-        <a class="px-4 py-2" href="/">Resources</a>
+        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
+        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
       </div>
       <!-- Subscribe button -->
       <div class="px-4 py-2">
-        <button class="text-lg font-medium border rounded-3xl py-2 px-3 hover:bg-subtle/30">
+        <button class="text-lg font-medium border border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
           Subscribe
         </button>
       </div>
@@ -34,38 +35,40 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
   </div>
 
   <!-- Main Navigation -->
-  <nav class="flex max-w-4xl h-full px-4 py-2 justify-between items-center mx-auto w-full">
-    <!-- Logo -->
-    <a class="flex items-center gap-2" href="/">
-      <div class="text-lg font-bold">Umami</div>
-    </a>
+  <Container outerClass="flex flex-col max-w-4xl px-2 py-2 mx-auto h-full">
+    <nav class="flex h-full w-full px-4 ">
+      <!-- Logo -->
+      <a class="flex items-center gap-2" href="/">
+        <div class="text-lg font-bold">Umami</div>
+      </a>
 
-    <!-- Centered Links (only visible on sm and up) -->
-    <div class="hidden sm:flex flex-1 justify-center items-center gap-5 text-base">
-      <a class="duration-200" href="/">Categories</a>
-      <a class="duration-200" href="/">Membership</a>
-      <a class="duration-200" href="/">Resources</a>
-    </div>
-
-    <!-- Right section -->
-    <div class="flex items-center gap-3 ml-auto">
-      <!-- Theme Switcher (always visible) -->
-      <ThemeSwitch />
-
-      <!-- Subscribe button (only on sm and up) -->
-      <button class="text-base font-medium border rounded-3xl py-2 px-3 hidden sm:flex hover:bg-subtle/30">
-        Subscribe
-      </button>
-
-      <!-- Mobile nav button (only on small screens) -->
-      <div id="navBtn" class="sm:hidden text-ink hover:cursor-pointer opacity-60 hover:opacity-100">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-        </svg>
+      <!-- Centered Links (only visible on sm and up) -->
+      <div class="hidden sm:flex flex-1 justify-center items-center gap-4 text-base">
+        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
+        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
       </div>
-    </div>
-  </nav>
 
+      <!-- Right section -->
+      <div class="flex items-center gap-3 ml-auto">
+        <!-- Theme Switcher (always visible) -->
+        <ThemeSwitch />
+
+        <!-- Subscribe button (only on sm and up) -->
+        <button class="text-base font-medium border-2 border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
+          <a href="#"> Subscribe </a>
+        </button>
+
+        <!-- Mobile nav button (only on small screens) -->
+        <div id="navBtn" class="sm:hidden text-ink hover:cursor-pointer opacity-60 hover:opacity-100">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+          </svg>
+        </div>
+      </div>
+    </nav>
+  </Container>
+  
+  <!-- Script to open mobile menu drawer -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const navBtn = document.getElementById("navBtn");

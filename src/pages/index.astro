@@ -1,9 +1,10 @@
 ---
 import Container from "@/components/layout/Container.astro"
+import Hero from "@/components/widgets/Hero.astro"
 import PageLayout from "@/layouts/PageLayout.astro"
 ---
 <PageLayout>
-	<div class="flex">
-		<h1 class="text-2xl">This is home page</h1>
-	</div>
+	<Container outerClass="flex flex-col max-w-4xl px-4 py-2 mx-auto h-full my-12">	
+		<Hero />
+	</Container>
 </PageLayout>

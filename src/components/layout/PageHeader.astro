@@ -1,0 +1,20 @@
+---
+import Container from './Container.astro';
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  title,
+  subtitle,
+  class: className,
+} = Astro.props
+---
+
+<section class={`flex flex-col gap-2 ${className}`}>
+  <h1 class="text-3xl font-bold text-umami-tx">{title}</h1>
+  {subtitle && <p class="text-lg text-umami-tx-2">{subtitle}</p>}
+</section>

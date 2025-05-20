@@ -1,7 +1,7 @@
 ---
-import Container from "@/components/layout/Container.astro"
-import Header from "@/components/layout/Header.astro"
 import "@/styles/global.css"
+import Header from "@/components/layout/Header.astro"
+import Footer from "@/components/layout/Footer.astro"
 ---
 
 <!doctype html>
@@ -13,10 +13,13 @@ import "@/styles/global.css"
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body class="relative bg-paper text-ink">
-		<Header />
-		<main class="flex pt-30 px-4 max-w-4xl mx-auto w-full">
-			<slot />
-		</main>
+	<body class="relative bg-umami-bg text-umami-tx">
+		<div class="min-h-screen flex-auto">
+			<Header />
+			<main class="flex py-24">
+				<slot />
+			</main>	
+			<Footer />
+		</div>
 	</body>
 </html>

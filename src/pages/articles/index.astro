@@ -1,0 +1,47 @@
+---
+import { getAllPosts, groupPostsByYear } from "@/utils/getData";
+import { getShortDate } from "@/utils/commonFunctions";
+
+import PageLayout from "@/layouts/PageLayout.astro";
+import Container from "@/components/layout/Container.astro";
+import PageHeader from "@/components/layout/PageHeader.astro";
+
+const allPosts = await getAllPosts();
+const postsByYear = groupPostsByYear(allPosts);
+
+// sort posts by year
+const sortedPostsByYear = 
+  Object.entries(postsByYear).sort((a, b) => parseInt(b[0], 10) - parseInt(a[0], 10));
+
+const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+---
+<PageLayout>
+		<Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
+      <PageHeader title="Blog Archive" subtitle="A chronological list of published posts, grouped by year." />
+      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-4">
+      {
+        sortedPostsByYear.length === 0 ? (
+          <div class="py-2 op-50">nothing here yet</div>
+      ) : (
+        sortedPostsByYear.map(([year, posts]) => (
+          <div class="relative pointer-events-none select-none">
+            <span class="absolute text-8xl mt-8 -top-8 -left-10 text-stroke-2 font-bold">{year}</span>
+          </div>
+          <div class="flex flex-col mt-4 gap-y-6 z-20">
+          {posts.map((post) => (
+                <a href={`/articles/${post.id}`} class="text-umami-tx-2 hover:text-umami-tx transition-opacity">
+                  <div class="flex flex-row gap-2 items-center">
+                    <span class="font-medium text-lg">
+                      {post.data.title}
+                    </span>
+                    <span class="text-sm text-umami-tx-2">{getShortDate(post.data.publishedDate)}</span>
+                    <span class="text-sm text-umami-tx-2">· 0 min</span>
+                  </div>
+                </a>
+          ))}
+          </div>
+        ))
+      )}
+      </div>
+    </Container>
+</PageLayout>
