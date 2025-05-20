@@ -252,14 +252,14 @@
 
 @layer utilities {
   .text-stroke {
-    -webkit-text-stroke: 1px var(--zenMuted);
+    -webkit-text-stroke: 1px var(--color-umami-ui-3);
     color: transparent;
-    opacity: 0.20;
+    opacity: 0.40;
   }
 
   .text-stroke-2 {
-    -webkit-text-stroke: 2px var(--zenMuted);
+    -webkit-text-stroke: 2px var(--color-umami-ui-3);
     color: transparent;
-    opacity: 0.20;
+    opacity: 0.40;
   }
 }
