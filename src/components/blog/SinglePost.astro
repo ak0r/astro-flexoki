@@ -23,7 +23,7 @@ const pubDate = frontmatter.publishedDate.toISOString()
 const isDraft = frontmatter.isDraft
 ---
 <PageLayout>
-  <Container outerClass="px-6">
+  <Container outerClass="max-w-3xl" innerClass="max-w-2xl">
     <RenderMarkdown>
       <Content />
     </RenderMarkdown>
