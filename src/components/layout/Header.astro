@@ -4,43 +4,39 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
 import Container from './Container.astro';
 ---
 
-<header class="fixed top-0 w-full h-[76px] border-b border-primary-txt/10 z-50 backdrop-blur-lg">
+<header class="fixed top-0 w-full h-[76px] border-b border-ink/10 z-50 backdrop-blur-lg">
 
   <!-- Mobile menu -->
-  <div id="navMenu" class="fixed bg-primary-bg shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
-    <div class="flex flex-col min-h-screen w-full bg-primary-bg">
-      <div class="">
-        <!-- Logo -->
-        <div class="flex items-center justify-between font-medium px-6 py-2 h-[76px] border-b border-primary-txt/10">
-          <a class="flex items-center gap-2" href="/">
-            <div class="text-lg font-bold">Umami</div>
-          </a>
-          <div id="closeBtn" class="">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>                  
-          </div>
+  <div id="navMenu" class="fixed bg-umami-bg shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
+    <div class="flex flex-col px-4 min-h-screen w-full bg-umami-bg">
+      <!-- Logo -->
+      <div class="flex items-center justify-between font-medium px-4 py-2 h-[76px] border-b border-ink/10">
+        <a class="flex items-center gap-2" href="/">
+          <div class="text-lg font-bold">Umami</div>
+        </a>
+        <div id="closeBtn" class="">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>                  
         </div>
-        <!-- Links -->
-        <div class="flex flex-col text-center gap-3 px-2 py-8">
-          <a href="/articles" class="px-4 py-2 text-muted-txt hover:text-primary-txt" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>
-            <h2>Articles</h2>
-          </a>
-          <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-        </div>
-        <!-- Subscribe button -->
-        <div class="px-4 py-2">
-          <button class="text-lg font-medium border border-primary-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
-            Subscribe
-          </button>
-        </div>
+      </div>
+      <!-- Links -->
+      <div class="flex flex-col gap-3 py-8">
+        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
+        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+      </div>
+      <!-- Subscribe button -->
+      <div class="px-4 py-2">
+        <button class="text-lg font-medium border border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
+          Subscribe
+        </button>
       </div>
     </div>
   </div>
 
   <!-- Main Navigation -->
-  <Container outerClass="flex flex-col max-w-4xl h-full">
-    <nav class="flex h-full w-full">
+  <Container outerClass="flex flex-col max-w-4xl px-2 py-2 mx-auto h-full">
+    <nav class="flex h-full w-full px-4 ">
       <!-- Logo -->
       <a class="flex items-center gap-2" href="/">
         <div class="text-lg font-bold">Umami</div>
