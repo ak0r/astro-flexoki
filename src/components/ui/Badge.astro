@@ -1,0 +1,40 @@
+---
+interface Props {
+  style?: 'primary' | 'outline' | undefined
+  size?: 'sm' | 'md' | 'lg' | undefined
+  href?: string | undefined
+  class?: string;
+  [x: string]: any;
+}
+
+const {
+  style = 'primary',
+  size = 'md',
+  href,
+  class: className,
+  ...rest
+} = Astro.props
+
+const sizes = {
+  lg: "px-5 py-3",
+  md: "px-4 py-2",
+  sm: "px-3 py-1",
+};
+
+const styles = {
+  outline: "border-2 border-primary-ui hover:bg-secondary-bg",
+  primary: "bg-secondary-bg hover:bg-secondary-bg border-2 border-primary-ui hover:border-active-ui", 
+};
+---
+
+<span
+  {...rest}
+  class:list={[
+    "inline-flex whitespace-nowrap items-center rounded-full text-sm font-medium transition",
+    sizes[size],
+    styles[style],
+    className,
+  ]}
+>
+  <slot />
+</span>

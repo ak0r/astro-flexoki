@@ -5,6 +5,7 @@ import { getFormattedDate } from '@/utils/commonFunctions';
 import type { CollectionEntry } from 'astro:content';
 import Container from '@/components/layout/Container.astro';
 import RenderMarkdown from './RenderMarkdown.astro';
+import Badge from '../ui/Badge.astro';
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -24,6 +25,43 @@ const isDraft = frontmatter.isDraft
 ---
 <PageLayout>
   <Container outerClass="max-w-3xl" innerClass="max-w-2xl">
+    <section class="post-head pb-6">
+      <h1>{title}</h1>
+      <div class="post-meta">
+        <div class="post-date text-muted-txt py-3">
+          {isDraft ? (
+            <span class="draft">Draft</span>
+          ) : (
+            <>
+              <time dateTime={pubDate}>{getFormattedDate(pubDate)}</time>
+              {frontmatter.readingTime && (
+                <span class="reading-time">{frontmatter.readingTime}</span>
+              )}
+            </>
+          )}
+        </div>
+        {isSearchable && (
+          <div class="post-search">
+            <input type="text" placeholder="Search..." />
+          </div>
+        )}
+        <div class="post-tags flex gap-2">
+          {frontmatter.tags.map((tag) => (
+            <a href={`/tags/${tag}`} class="tag" key={tag}>
+
+              <Badge
+                size="sm"
+                style="outline"
+                class="text-muted-txt"
+                href={`/tags/${tag}`}
+              >
+                {tag}
+              </Badge>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
     <RenderMarkdown>
       <Content />
     </RenderMarkdown>
