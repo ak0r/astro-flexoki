@@ -27,6 +27,11 @@ export function getSortedPosts(
 
 // Below functions are from personal theme
 
+/** returns the date of the post based on option in siteConfig.sortPostsByUpdatedDate */
+export function getPostDate(post: CollectionEntry<"blog">) {
+	return new Date(post.data.publishedDate);
+}
+
 /** filter out draft posts based on the environment */
 export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
 	return await getCollection("blog", ({ data }) => {

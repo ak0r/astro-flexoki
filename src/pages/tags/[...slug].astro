@@ -1,11 +1,12 @@
 ---
 import { getAllPosts, getUniqueTags, getTaxonomyWithCounts } from "@/utils/getData";
-import { slugify } from "@/utils/commonFunctions";
+import { slugify, getShortDate } from "@/utils/commonFunctions";
 import PageLayout from "@/layouts/PageLayout.astro";
 import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import Container from "@/components/layout/Container.astro";
 import PageHeader from "@/components/layout/PageHeader.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts();
@@ -37,16 +38,16 @@ const isActive = (link: string) =>
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-    <PageHeader title={`Posts tagged with #${tag}`} subtitle="Explore posts by this tag." />
+    <PageHeader title={`Tag → #${tag}`} subtitle="" />
     <div class="py-8">
-      <div class="mb-6">
-        <h2 class="text-xl font-semibold mb-2">All Tags</h2>
-        <ul class="flex flex-wrap gap-4">
+      <div class="flex flex-col mb-6 gap-4">
+        <h2 class="text-xl font-semibold">All Tags</h2>
+        <div class="flex flex-wrap gap-4">
           {allTags.map((tag) => (
             <Badge
                   size="sm"
                   style="outline"
-                  class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : 'bg-gray-200 text-gray-800'}`}
+                  class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : ''}`}
                 >
                   <Link
                     href={`/tags/${tag}`}
@@ -61,20 +62,28 @@ const isActive = (link: string) =>
                   </Link>
                 </Badge>
           ))}
-        </ul>
+        </div>
       </div>
-      {posts.length > 0 ? (
-        posts.map((post) => (
-          <article class="mb-6">
-            <h2 class="text-xl font-semibold">
-              <a href={`/articles/${post.id}`}>{post.data.title}</a>
-            </h2>
-            <p class="text-gray-600">{post.data.description}</p>
-          </article>
-        ))
-      ) : (
-        <p>No posts found for this tag.</p>
-      )}
+      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-4">
+        <div class="flex flex-col gap-y-6 z-20">
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              // <a href={`/articles/${post.id}`} class="text-muted-txt hover:text-primary-txt">
+              //   <div class="flex flex-row gap-2 items-center">
+              //     <span class="font-medium text-lg">
+              //       {post.data.title}
+              //     </span>
+              //     <span class="text-sm text-muted-txt">{getShortDate(post.data.publishedDate)}</span>
+              //     <span class="text-sm text-muted-txt">· 0 min</span>
+              //   </div>
+              // </a>
+              <PostPreview singlePost={post} />
+            ))
+          ) : (
+            <p>No posts found for this tag.</p>
+          )}
+        </div>
+      </div>
     </div>
   </Container>
 </PageLayout>
