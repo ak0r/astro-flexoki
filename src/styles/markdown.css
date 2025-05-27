@@ -12,7 +12,7 @@
 
 /* paragraph spacing except for paragraphs inside list items */
 .markdown-content p:not(li p):not(:where(.not-content *)) {
-	@apply mt-4;
+	@apply mt-1;
 }
 
 /* Headings after non-headings have more spacing. */

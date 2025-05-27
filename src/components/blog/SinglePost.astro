@@ -19,13 +19,13 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
 const title = frontmatter.title
 const description = frontmatter.description
-const ogImage = frontmatter.coverImage
+const coverImage = frontmatter.coverImage
 const pubDate = frontmatter.publishedDate.toISOString()
 const isDraft = frontmatter.isDraft
 ---
 <PageLayout>
-  <Container outerClass="max-w-3xl" innerClass="max-w-2xl">
-    <section class="post-head pb-6">
+  <Container outerClass="max-w-5xl">
+    <section class="post-head pb-6 mx-auto max-w-3xl">
       <h1>{title}</h1>
       <div class="post-meta">
         <div class="post-date text-muted-txt py-3">
@@ -62,7 +62,15 @@ const isDraft = frontmatter.isDraft
         </div>
       </div>
     </section>
-    <RenderMarkdown>
+    <section class="post-cover mb-6 group">
+      {coverImage && (
+        <img
+          src={coverImage}
+          alt={title}
+          class="w-full h-auto rounded-lg object-cover shadow-xl transition"
+        />
+      )}
+    <RenderMarkdown className="post-content max-w-3xl mx-auto">
       <Content />
     </RenderMarkdown>
   </Container>
