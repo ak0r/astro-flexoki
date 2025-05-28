@@ -38,10 +38,15 @@ const isActive = (link: string) =>
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-    <PageHeader title={`Tag → #${tag}`} subtitle="" />
+    <!-- <PageHeader title={`#${tag}`} subtitle={`Showing posts from ${tag}`} /> -->
+    <section class="flex flex-col gap-2">
+      <p class="text-md text-muted-txt">Showing posts from </p>
+      <h1 class="text-3xl font-bold text-primary-txt">#{tag}</h1>
+      
+    </section>
     <div class="py-8">
       <div class="flex flex-col mb-6 gap-4">
-        <h2 class="text-xl font-semibold">All Tags</h2>
+        <!-- <h2 class="text-xl font-semibold">All Tags</h2> -->
         <div class="flex flex-wrap gap-4">
           {allTags.map((tag) => (
             <Badge
