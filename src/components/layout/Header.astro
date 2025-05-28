@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
 import Container from '@/components/layout/Container.astro';
 import Link from '@/components/ui/Link.astro';
+import Button from "@/components/ui/Button.astro"
 ---
 
 <header class="fixed top-0 w-full h-[76px] border-b border-primary-txt/10 z-50 backdrop-blur-lg">
@@ -30,9 +31,9 @@ import Link from '@/components/ui/Link.astro';
         </div>
         <!-- Subscribe button -->
         <div class="px-4 py-2">
-          <button class="text-lg font-medium border border-primary-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
-            Subscribe
-          </button>
+          <Button href="/" class="ml-4" style="pill">
+            Subscribe Now
+          </Button>
         </div>
       </div>
     </div>
@@ -59,9 +60,9 @@ import Link from '@/components/ui/Link.astro';
         <ThemeSwitch />
 
         <!-- Subscribe button (only on sm and up) -->
-        <button class="text-base font-medium border-2 border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
-          <a href="#"> Subscribe </a>
-        </button>
+        <Button href="/" class="ml-4" style="pill">
+          Subscribe
+        </Button>
 
         <!-- Mobile nav button (only on small screens) -->
         <div id="navBtn" class="sm:hidden text-ink hover:cursor-pointer opacity-60 hover:opacity-100">

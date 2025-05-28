@@ -16,24 +16,18 @@ interface Props {
 }
 
 // Destructuring Astro.props to get the component's props
-let {
+const {
   src,
   alt,
-  width,
-  height,
-  loading,
-  decoding,
+  width = 600, // Default width
+  height = 400, // Default height
+  loading = "lazy",
+  decoding = "async",
   class: className,
-  format,
+  format = "webp",
   style,
 } = Astro.props;
 
-// Default values for optional props
-loading = loading || "lazy"; 
-decoding = decoding || "async";
-format = format || "webp";
-width = width || 600; // Default width
-height = height || 400; // Default height
 ---
 <Picture
   src={src}
