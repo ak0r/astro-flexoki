@@ -1,0 +1,27 @@
+---
+import { getFormattedDate } from '@/utils/commonFunctions';
+
+interface Props {
+  date: Date;
+  dateFormat?: 'long' | 'short';
+  class?: string;
+}
+
+const { 
+  date, 
+  dateFormat = 'long', 
+  class: className,
+} = Astro.props as Props;
+
+const formattedDate = getFormattedDate(date, dateFormat);
+---
+
+<span
+  class:list={[
+    "font-mono",
+    className
+    ]}>
+  <time datetime={date.toISOString()}>
+    {formattedDate}
+  </time>
+</span>

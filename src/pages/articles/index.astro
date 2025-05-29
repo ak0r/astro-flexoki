@@ -5,6 +5,7 @@ import { getShortDate } from "@/utils/commonFunctions";
 import PageLayout from "@/layouts/PageLayout.astro";
 import Container from "@/components/layout/Container.astro";
 import PageHeader from "@/components/layout/PageHeader.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
 
 const allPosts = await getAllPosts();
 const postsByYear = groupPostsByYear(allPosts);
@@ -29,15 +30,16 @@ const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a
           </div>
           <div class="flex flex-col mt-4 gap-y-6 z-20">
           {posts.map((post) => (
-            <a href={`/articles/${post.id}`} class="text-umami-tx-2 hover:text-umami-tx transition-opacity">
-              <div class="flex flex-row gap-2 items-center">
-                <span class="font-medium text-lg">
-                  {post.data.title}
-                </span>
-                <span class="text-sm text-umami-tx-2">{getShortDate(post.data.publishedDate)}</span>
-                <span class="text-sm text-umami-tx-2">· 0 min</span>
-              </div>
-            </a>
+            // <a href={`/articles/${post.id}`} class="text-umami-tx-2 hover:text-umami-tx transition-opacity">
+            //   <div class="flex flex-row gap-2 items-center">
+            //     <span class="font-medium text-lg">
+            //       {post.data.title}
+            //     </span>
+            //     <span class="text-sm text-umami-tx-2">{getShortDate(post.data.publishedDate)}</span>
+            //     <span class="text-sm text-umami-tx-2">· 0 min</span>
+            //   </div>
+            // </a>
+            <PostPreview singlePost={post} />
           ))}
           </div>
         ))
