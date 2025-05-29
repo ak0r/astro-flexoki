@@ -28,7 +28,7 @@ const styles = {
 <Tag
   {...rest}
   class:list={[
-    'group inline-flex items-center gap-x-1 bg-secondary-bg/10 hover:bg-secondary-bg border-2 border-primary-ui hover:border-hover-ui px-3 py-2 text-sm font-medium text-muted-txt transition-all no-underline',
+    'group inline-flex items-center gap-x-1 text-muted-txt hover:text-primary-txt bg-secondary-bg/10 hover:bg-secondary-bg border-2 border-primary-ui hover:border-hover-ui px-3 py-2 text-sm font-medium transition-all no-underline',
     !href && 'cursor-default',
     styles[style],
     className,
@@ -48,7 +48,7 @@ const styles = {
           stroke-width='2.5'
           stroke-linecap='round'
           stroke-linejoin='round'
-          class='stroke-primary-ui group-hover:stroke-black/50'
+          class='stroke-primary-ui group-hover:stroke-active-ui'
         >
           <line
             x1='19'
@@ -80,7 +80,7 @@ const styles = {
           stroke-width='2.5'
           stroke-linecap='round'
           stroke-linejoin='round'
-          class='stroke-primary-ui group-hover:stroke-black/50'
+          class='stroke-primary-ui group-hover:stroke-active-ui'
         >
           <line
             x1='5'
