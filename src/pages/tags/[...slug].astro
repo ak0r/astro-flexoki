@@ -1,11 +1,10 @@
 ---
 import { getAllPosts, getUniqueTags, getTaxonomyWithCounts } from "@/utils/getData";
-import { slugify, getShortDate } from "@/utils/commonFunctions";
+import { slugify } from "@/utils/commonFunctions";
 import PageLayout from "@/layouts/PageLayout.astro";
 import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import Container from "@/components/layout/Container.astro";
-import PageHeader from "@/components/layout/PageHeader.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 
 export async function getStaticPaths() {
@@ -50,22 +49,22 @@ const isActive = (link: string) =>
         <div class="flex flex-wrap gap-4">
           {allTags.map((tag) => (
             <Badge
-                  size="sm"
-                  style="outline"
-                  class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : ''}`}
-                >
-                  <Link
-                    href={`/tags/${tag}`}
-                    class=""
-                  > 
-                    #{tag}
-                    { tagCounts[tag] > 1 && (
-                      <span class="text-xs font-normal">
-                        &nbsp;{tagCounts[tag]} post{tagCounts[tag] > 1 && "s"}
-                      </span>
-                    )}
-                  </Link>
-                </Badge>
+              size="sm"
+              style="outline"
+              class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : ''}`}
+            >
+              <Link
+                href={`/tags/${tag}`}
+                class=""
+              > 
+                #{tag}
+                { tagCounts[tag] > 1 && (
+                  <span class="text-xs font-normal">
+                    &nbsp;{tagCounts[tag]} post{tagCounts[tag] > 1 && "s"}
+                  </span>
+                )}
+              </Link>
+            </Badge>
           ))}
         </div>
       </div>
@@ -73,15 +72,6 @@ const isActive = (link: string) =>
         <div class="flex flex-col gap-y-6 z-20">
           {posts.length > 0 ? (
             posts.map((post) => (
-              // <a href={`/articles/${post.id}`} class="text-muted-txt hover:text-primary-txt">
-              //   <div class="flex flex-row gap-2 items-center">
-              //     <span class="font-medium text-lg">
-              //       {post.data.title}
-              //     </span>
-              //     <span class="text-sm text-muted-txt">{getShortDate(post.data.publishedDate)}</span>
-              //     <span class="text-sm text-muted-txt">· 0 min</span>
-              //   </div>
-              // </a>
               <PostPreview singlePost={post} />
             ))
           ) : (
