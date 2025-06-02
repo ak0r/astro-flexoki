@@ -6,8 +6,8 @@ import type { CollectionEntry } from 'astro:content';
 import Container from '@/components/layout/Container.astro';
 import RenderMarkdown from './RenderMarkdown.astro';
 import Badge from '../ui/Badge.astro';
-import Image from 'astro/components/Image.astro';
 import CustomImage from '@/components/ui/CustomImage.astro';
+import Button from '@/components/ui/Button.astro';
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -29,14 +29,29 @@ const isDraft = frontmatter.isDraft
 <PageLayout>
   <Container outerClass="max-w-5xl">
     <section class="post-head pb-6 mx-auto max-w-3xl">
-      <h1>{title}</h1>
+      <!-- Back button -->
+      <Button
+        href="/articles"
+        class="mb-4"
+        title="Back"
+        style="rounded"
+        arrow="backward"
+        size="sm"
+      />
+      <h1 class="font-bold">{title}</h1>
       <div class="post-meta">
         <div class="post-date text-muted-txt py-3">
           {isDraft ? (
-            <span class="draft">Draft</span>
+            <Badge
+                size="sm"
+                style="outline"
+                class="text-paper font-semibold bg-accent-red"
+              >
+               This is a draft post
+              </Badge>
           ) : (
             <>
-              <time dateTime={pubDate}>{getFormattedDate(pubDate)}</time>
+              <time class="font-mono" dateTime={pubDate}>{getFormattedDate(pubDate)}</time>
               {frontmatter.readingTime && (
                 <span class="reading-time">{frontmatter.readingTime}</span>
               )}

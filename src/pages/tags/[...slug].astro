@@ -6,6 +6,7 @@ import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import Container from "@/components/layout/Container.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
+import Button from '@/components/ui/Button.astro';
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts();
@@ -38,6 +39,14 @@ const isActive = (link: string) =>
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
     <!-- <PageHeader title={`#${tag}`} subtitle={`Showing posts from ${tag}`} /> -->
+    <Button
+      href="/"
+      class="mb-4"
+      title="Back"
+      style="rounded"
+      arrow="backward"
+      size="sm"
+    />
     <section class="flex flex-col gap-2">
       <p class="text-md text-muted-txt">Showing posts from </p>
       <h1 class="text-3xl font-bold text-primary-txt">#{tag}</h1>

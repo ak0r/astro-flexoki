@@ -5,7 +5,7 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import PageHeader from "@/components/layout/PageHeader.astro";
 import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
-
+import Button from '@/components/ui/Button.astro';
 
 const allPosts = await getAllPosts();
 // const allTags = getUniqueTagsWithCount(allPosts);
@@ -20,6 +20,14 @@ const {
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
+    <Button
+        href="/"
+        class="mb-4"
+        title="Back"
+        style="rounded"
+        arrow="backward"
+        size="sm"
+      />
     <PageHeader title="Tags" subtitle="Explore posts by tags." />
       <div class="flex flex-wrap gap-4 py-8">
         {
