@@ -37,17 +37,8 @@ const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a
           <div class="relative pointer-events-none select-none">
             <span class="absolute text-8xl mt-8 -top-8 -left-10 text-stroke-2 font-bold">{year}</span>
           </div>
-          <div class="flex flex-col mt-4 gap-y-6 z-20">
+          <div class="flex flex-col gap-y-2 z-20">
           {posts.map((post) => (
-            // <a href={`/articles/${post.id}`} class="text-umami-tx-2 hover:text-umami-tx transition-opacity">
-            //   <div class="flex flex-row gap-2 items-center">
-            //     <span class="font-medium text-lg">
-            //       {post.data.title}
-            //     </span>
-            //     <span class="text-sm text-umami-tx-2">{getShortDate(post.data.publishedDate)}</span>
-            //     <span class="text-sm text-umami-tx-2">· 0 min</span>
-            //   </div>
-            // </a>
             <PostPreview singlePost={post} />
           ))}
           </div>

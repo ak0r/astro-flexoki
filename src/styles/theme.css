@@ -3,7 +3,8 @@
   /* Disable default colors to prevent their use; feel free to re-enable as needed. */
   --color-*: initial;
 
-  /* Color palatte from https://stephango.com/flexoki */
+  /* palatte from https://stephango.com/flexoki */
+
   /* Specify new default colors. */
   --color-black:       #100F0F; /* oklch(0.1696 0.0017 17.32) */
   --color-paper:       #FFFCF0; /* oklch(0.9901 0.0161 95.22) */
@@ -132,4 +133,7 @@
 	--font-sans: "Inter Variable", var(--font-fallback);
 	--font-mono:
 		"SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace";
+  --font-primary: var(--font-primary);
+  --font-secondary: var(--font-secondary);
+  --font-code: var(--font-code);
 }

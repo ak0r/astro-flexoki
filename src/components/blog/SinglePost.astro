@@ -51,7 +51,7 @@ const isDraft = frontmatter.isDraft
               </Badge>
           ) : (
             <>
-              <time class="font-mono" dateTime={pubDate}>{getFormattedDate(pubDate)}</time>
+              <time class="font-code" dateTime={pubDate}>{getFormattedDate(pubDate)}</time>
               {frontmatter.readingTime && (
                 <span class="reading-time">{frontmatter.readingTime}</span>
               )}
