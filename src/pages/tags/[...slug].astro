@@ -59,7 +59,8 @@ const isActive = (link: string) =>
           {allTags.map((tag) => (
             <Badge
               size="sm"
-              style="outline"
+              style="primary"
+              accent='orange'
               class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : ''}`}
             >
               <Link

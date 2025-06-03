@@ -1,7 +1,8 @@
 ---
 interface Props {
-  style?: 'primary' | 'outline' | undefined
-  size?: 'sm' | 'md' | 'lg' | undefined
+  style?: 'primary' | 'outline';
+  size?: 'sm' | 'md';
+  accent?: 'default' | 'red' | 'orange' | 'yellow' | 'green' | 'cyan' | 'blue' | 'purple' | 'magenta';
   class?: string;
   [x: string]: any;
 }
@@ -9,25 +10,38 @@ interface Props {
 const {
   style = 'primary',
   size = 'md',
+  accent = 'default',
   class: className,
   ...rest
-} = Astro.props
+} = Astro.props;
 
 const sizes = {
-  lg: "px-5 py-3",
-  md: "px-4 py-2",
-  sm: "px-3 py-1",
+  md: "px-4 py-2 text-sm",
+  sm: "px-3 py-1 text-xs",
+};
+
+const accentClasses = {
+  red: "border-accent-red/50 hover:bg-accent-red/20",
+  orange: "border-accent-orange/50 hover:bg-accent-orange/20",
+  yellow: "border-accent-yellow/50 hover:bg-accent-yellow/20",
+  green: "border-accent-green/50 hover:bg-accent-green/20",
+  cyan: "border-accent-cyan/50 hover:bg-accent-cyan/20",
+  blue: "border-accent-blue/50 hover:bg-accent-blue/20",
+  purple: "border-accent-purple/50 hover:bg-accent-purple/20",
+  magenta: "border-accent-magenta/50 hover:bg-accent-magenta/20",
+  default: "border-primary-ui hover:bg-secondary-bg/20",
 };
 
 const styles = {
-  outline: "border-2 border-primary-ui hover:border-active-ui hover:bg-secondary-bg",
-  primary: "bg-secondary-bg/50 hover:bg-secondary-bg border-2 border-primary-ui hover:border-active-ui", 
+  primary: `bg-secondary-bg/50 hover:bg-secondary-bg border-2 border-primary-ui hover:border-active-ui`,
+  outline: `border-2 ${accentClasses[accent]}`,
 };
 ---
+
 <span
   {...rest}
   class:list={[
-    "items-center rounded-lg text-sm",
+    "inline-flex items-center rounded-full",
     sizes[size],
     styles[style],
     className,
