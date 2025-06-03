@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
 
+import expressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -37,5 +39,5 @@ export default defineConfig({
       },
     ]
   },
-  integrations: [icon(), mdx()],
+  integrations: [icon(), expressiveCode(), mdx()],
 });
