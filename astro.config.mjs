@@ -39,5 +39,9 @@ export default defineConfig({
       },
     ]
   },
-  integrations: [icon(), expressiveCode(), mdx()],
+  integrations: [
+    icon(), 
+    expressiveCode(),
+    mdx()
+  ],
 });

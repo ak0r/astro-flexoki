@@ -88,8 +88,8 @@ const isDraft = frontmatter.isDraft
           class="w-full h-auto rounded-lg object-cover shadow-xl transition"
         />
       )}
-    <RenderMarkdown className="post-content max-w-3xl mx-auto">
-      <Content />
-    </RenderMarkdown>
+    <section class="markdown-content mb-6 post-content max-w-3xl mx-auto">
+      <Content components="CustomeImage"/>
+    </section>
   </Container>
 </PageLayout>
