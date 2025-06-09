@@ -26,6 +26,54 @@
   --color-accent-blue     :var(--ac-blue);
   --color-accent-purple   :var(--ac-purple);
   --color-accent-magenta  :var(--ac-magenta);
+
+  --color-base-primary      : var(--bgPrimary);
+  --color-base-muted        : var(--bgMuted);
+  --color-base-suble        : var(--bgSubtle);
+
+  --color-content-primary   : var(--txtPrimary);
+  --color-content-muted     : var(--txtMuted);
+  --color-content-subtle    : var(--txtSubtle);
+
+  --color-ui-primary        : var(--borderPrimary);
+  --color-ui-hover          : var(--borderHovered);
+  --color-ui-active         : var(--borderActive);
+
+  --color-accent-low        : var(--orange-low);
+  --color-accent            : var(--orange);
+  --color-accent-high       : var(--orange-high);
+    
+  --color-orange-low        : var(--orange-low);
+  --color-orange            : var(--orange);
+  --color-orange-high       : var(--orange-high);
+    
+  --color-green-low         : var(--green-low);
+  --color-green             : var(--green);
+  --color-green-high        : var(--green-high);
+    
+  --color-blue-low          : var(--blue-low);
+  --color-blue              : var(--blue);
+  --color-blue-high         : var(--blue-high);
+    
+  --color-purple-low        : var(--purple-low);
+  --color-purple            : var(--purple);
+  --color-purple-high       : var(--purple-high);
+    
+  --color-red-low           : var(--red-low);
+  --color-red               : var(--red);
+  --color-red-high          : var(--red-high);
+    
+  --color-yellow-low        : var(--yellow-low);
+  --color-yellow            : var(--yellow);
+  --color-yellow-high       : var(--yellow-high);
+    
+  --color-cyan-low          : var(--cyan-low);
+  --color-cyan              : var(--cyan);
+  --color-cyan-high         : var(--cyan-high);
+    
+  --color-magenta-low       : var(--magenta-low);
+  --color-magenta           : var(--magenta);
+  --color-magenta-high      : var(--magenta-high);
 }
 
 
@@ -34,42 +82,100 @@
   /* Thanks to https://medium.com/@kevstrosky/theme-colors-with-tailwind-css-v4-0-and-next-themes-dark-light-custom-mode-36dca1e20419 */
   /* Light Mode Colours */
   [data-theme="light"] {
-    --bg-primary:     var(--color-paper);
-    --bg-secondary:   var(--color-base-50);
-    --tx-primary:     var(--color-black);
-    --tx-muted:       var(--color-base-600);
-    --tx-faint:       var(--color-base-300);
-    --ui-primary:     var(--color-base-100);
-    --ui-hover:       var(--color-base-150);
-    --ui-active:      var(--color-base-200);
-    --ac-red:         var(--color-red-600);
-    --ac-orange:      var(--color-orange-600);
-    --ac-yellow:      var(--color-yellow-600);
-    --ac-green:       var(--color-green-600);
-    --ac-cyan:        var(--color-cyan-600);
-    --ac-blue:        var(--color-blue-600);
-    --ac-purple:      var(--color-purple-600);
-    --ac-magenta:     var(--color-magenta-600);
+       
+    --bgPrimary       : var(--color-paper);
+    --bgMuted         : var(--color-base-50);
+    --bgSubtle        : var(--color-base-150);
+
+    --txtPrimary     : var(--color-black);
+    --txtMuted       : var(--color-base-600);
+    --txtSubtle      : var(--color-base-300);
+
+    --borderPrimary   : var(--color-base-200);
+    --borderHovered   : var(--color-base-800);
+    --borderActive    : var(--color-base-500);
+
+    --orange-low       : var(--color-orange-100);
+    --orange           : var(--color-orange-500);
+    --orange-high      : var(--color-orange-700);
+
+    --green-low        : var(--color-green-100);
+    --green            : var(--color-green-500);
+    --green-high       : var(--color-green-700);
+
+    --blue-low         : var(--color-blue-100);
+    --blue             : var(--color-blue-500);
+    --blue-high        : var(--color-blue-700);
+
+    --purple-low       : var(--color-purple-100);
+    --purple           : var(--color-purple-500);
+    --purple-high      : var(--color-purple-700);
+
+    --red-low          : var(--color-red-100);
+    --red              : var(--color-red-500);
+    --red-high         : var(--color-red-700);
+
+    --yellow-low       : var(--color-yellow-100);
+    --yellow           : var(--color-yellow-500);
+    --yellow-high      : var(--color-yellow-700);
+
+    --cyan-low         : var(--color-cyan-100);
+    --cyan             : var(--color-cyan-500);
+    --cyan-high        : var(--color-cyan-700);
+
+    --magenta-low      : var(--color-magenta-100);
+    --magenta          : var(--color-magenta-500);
+    --magenta-high     : var(--color-magenta-700);
+
   }
   
   /* Dark Mode Colours */
   [data-theme="dark"] {
-    --bg-primary:     var(--color-black);
-    --bg-secondary:   var(--color-base-950);
-    --tx-primary:     var(--color-base-200);
-    --tx-muted:       var(--color-base-500);
-    --tx-faint:       var(--color-base-700);
-    --ui-primary:     var(--color-base-900);
-    --ui-hover:       var(--color-base-850);
-    --ui-active:      var(--color-base-800);
-    --ac-red:         var(--color-red-400);
-    --ac-orange:      var(--color-orange-400);
-    --ac-yellow:      var(--color-yellow-400);
-    --ac-green:       var(--color-green-400);
-    --ac-cyan:        var(--color-cyan-400);
-    --ac-blue:        var(--color-blue-400);
-    --ac-purple:      var(--color-purple-400);
-    --ac-magenta:     var(--color-magenta-400);
+    
+    --bgPrimary       : var(--color-black);
+    --bgMuted         : var(--color-base-950);
+    --bgSubtle        : var(--color-base-850);
+
+    --txtPrimary      : var(--color-base-200);
+    --txtMuted        : var(--color-base-500);
+    --txtSubtle       : var(--color-base-700);
+
+    --borderPrimary   : var(--color-base-800);
+    --borderHovered   : var(--color-base-200);
+    --borderActive    : var(--color-base-700);
+
+    --orange-low       : var(--color-orange-900);
+    --orange           : var(--color-orange-300);
+    --orange-high      : var(--color-orange-150);
+
+    --green-low        : var(--color-green-900);
+    --green            : var(--color-green-300);
+    --green-high       : var(--color-green-150);
+
+    --blue-low         : var(--color-blue-900);
+    --blue             : var(--color-blue-300);
+    --blue-high        : var(--color-blue-150);
+
+    --purple-low       : var(--color-purple-900);
+    --purple           : var(--color-purple-300);
+    --purple-high      : var(--color-purple-150);
+
+    --red-low          : var(--color-red-900);
+    --red              : var(--color-red-300);
+    --red-high         : var(--color-red-150);
+
+    --yellow-low       : var(--color-yellow-900);
+    --yellow           : var(--color-yellow-300);
+    --yellow-high      : var(--color-yellow-150);
+
+    --cyan-low         : var(--color-cyan-900);
+    --cyan             : var(--color-cyan-300);
+    --cyan-high        : var(--color-cyan-150);
+
+    --magenta-low      : var(--color-magenta-900);
+    --magenta          : var(--color-magenta-300);
+    --magenta-high     : var(--color-magenta-150);
+    
   }
 
   :root {
@@ -78,7 +184,7 @@
 	}
 
   html {
-    @apply bg-primary-bg text-primary-txt;
+    @apply bg-base-primary text-content-primary;
 		scroll-behavior: smooth;
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
@@ -88,13 +194,13 @@
 
 @layer utilities {
   .text-stroke {
-    -webkit-text-stroke: 1px var(--color-active-ui);
+    -webkit-text-stroke: 1px var(--color-ui-primary);
     color: transparent;
     opacity: 0.50;
   }
 
   .text-stroke-2 {
-    -webkit-text-stroke: 2px var(--color-active-ui);
+    -webkit-text-stroke: 2px var(--color-ui-primary);
     color: transparent;
     opacity: 0.50;
   }
@@ -118,7 +224,7 @@
     @apply text-sm md:text-lg font-primary;
   }
   h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-    @apply font-semibold text-primary-txt leading-snug;
+    @apply font-semibold text-content-primary leading-snug;
   }
 
 	.outer-container {
