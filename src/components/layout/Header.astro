@@ -24,14 +24,13 @@ import Button from "@/components/ui/Button.astro"
           </div>
         </div>
         <!-- Links -->
-        <div class="flex flex-col text-center gap-3 px-2 py-8">
+        <div class="flex flex-col gap-3 px-2 py-8">
           <Link href="/articles" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</Link>
           <Link href="/tags" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/tags' ? 'page' : undefined}>Tags</Link>
           <Link href="/about" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</Link>
-        </div>
-        <!-- Subscribe button -->
-        <div class="px-4 py-2">
-          <Button href="/" class="ml-4" style="pill">
+          
+          <!-- Subscribe button -->
+          <Button href="/" variant="primary" class="px-4">
             Subscribe Now
           </Button>
         </div>

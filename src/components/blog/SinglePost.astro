@@ -5,7 +5,7 @@ import { getFormattedDate } from '@/utils/commonFunctions';
 import type { CollectionEntry } from 'astro:content';
 import Container from '@/components/layout/Container.astro';
 import RenderMarkdown from './RenderMarkdown.astro';
-import Badge from '../ui/Badge.astro';
+import Badge from '@/components//ui/Badge.astro';
 import CustomImage from '@/components/ui/CustomImage.astro';
 import BackButton from '@/components/widgets/BackButton.astro';
 
@@ -81,7 +81,7 @@ const isDraft = frontmatter.isDraft
         <CustomImage
           src={coverImage}
           alt={coverImageAlt}
-          class="w-full h-auto rounded-lg object-cover shadow-xl transition"
+          class="shadow-xl"
         />
       )}
     <section class="markdown-content mb-6 post-content max-w-3xl mx-auto">
