@@ -1,26 +1,28 @@
 @theme {
 
   /* Disable default colors to prevent their use; feel free to re-enable as needed. */
+  
   --color-*: initial;
 
   /* palatte from https://stephango.com/flexoki */
-
   /* Specify new default colors. */
-  --color-black:       #100F0F; /* oklch(0.1696 0.0017 17.32) */
-  --color-paper:       #FFFCF0; /* oklch(0.9901 0.0161 95.22) */
-  --color-base-50:     #F2F0E5; /* oklch(0.9537 0.0147 98.29) */
-  --color-base-100:    #E6E4D9; /* oklch(0.9174 0.0149 98.3) */
-  --color-base-150:    #DAD8CE; /* ooklch(0.881 0.0137 97.46) */
-  --color-base-200:    #CECDC3; /* oklch(0.8463 0.0137 102.05) */
-  --color-base-300:    #B7B5AC; /* oklch(0.7721 0.0128 96.47) */
-  --color-base-400:    #9F9D96; /* oklch(0.6956 0.0103 93.62) */
-  --color-base-500:    #878580; /* oklch(0.6169 0.0078 88.67) */
+  --color-black:       #100F0F;
+  --color-paper:       #FFFCF0;
+
+  --color-base-50:     #F2F0E5;
+  --color-base-100:    #E6E4D9;
+  --color-base-150:    #DAD8CE;
+  --color-base-200:    #CECDC3;
+  --color-base-300:    #B7B5AC;
+  --color-base-400:    #9F9D96;
+  --color-base-500:    #878580;
   --color-base-600:    #6F6E69;
   --color-base-700:    #575653;
   --color-base-800:    #403E3C;
   --color-base-850:    #343331;
   --color-base-900:    #282726;
   --color-base-950:    #1C1B1A;
+  
   --color-red-50:      #FFE1D5;
   --color-red-100:     #FFCABB;
   --color-red-150:     #FDB2A2;
@@ -34,6 +36,7 @@
   --color-red-850:     #551B18;
   --color-red-900:     #3E1715;
   --color-red-950:     #261312;
+
   --color-orange-50:   #FFE7CE;
   --color-orange-100:  #FED3AF;
   --color-orange-150:  #FCC192;
@@ -47,6 +50,7 @@
   --color-orange-850:  #59290D;
   --color-orange-900:  #40200D;
   --color-orange-950:  #27180E;
+  
   --color-yellow-50:   #FAEEC6;
   --color-yellow-100:  #F6E2A0;
   --color-yellow-150:  #F1D67E;
@@ -60,6 +64,7 @@
   --color-yellow-850:  #503D02;
   --color-yellow-900:  #3A2D04;
   --color-yellow-950:  #241E08;
+  
   --color-green-50:    #EDEECF;
   --color-green-100:   #DDE2B2;
   --color-green-150:   #CDD597;
@@ -73,6 +78,7 @@
   --color-green-850:   #313D07;
   --color-green-900:   #252D09;
   --color-green-950:   #1A1E0C;
+  
   --color-cyan-50:     #DDF1E4;
   --color-cyan-100:    #BFE8D9;
   --color-cyan-150:    #A2DECE;
@@ -86,6 +92,7 @@
   --color-cyan-850:    #143F3C;
   --color-cyan-900:    #122F2C;
   --color-cyan-950:    #101F1D;
+ 
   --color-blue-50:     #E1ECEB;
   --color-blue-100:    #C6DDE8;
   --color-blue-150:    #ABCFE2;
@@ -99,6 +106,7 @@
   --color-blue-850:    #133051;
   --color-blue-900:    #12253B;
   --color-blue-950:    #101A24;
+ 
   --color-purple-50:   #F0EAEC;
   --color-purple-100:  #E2D9E9;
   --color-purple-150:  #D3CAE6;
@@ -112,6 +120,7 @@
   --color-purple-850:  #31234E;
   --color-purple-900:  #261C39;
   --color-purple-950:  #1A1623;
+ 
   --color-magenta-50:  #FEE4E5;
   --color-magenta-100: #FCCFDA;
   --color-magenta-150: #F9B9CF;
