@@ -28,7 +28,7 @@ const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a
         size="sm"
       />
       <PageHeader title="Blog Archive" subtitle="A chronological list of published posts, grouped by year." />
-      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-4">
+      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-6">
       {
         sortedPostsByYear.length === 0 ? (
           <div class="py-2 op-50">nothing here yet</div>

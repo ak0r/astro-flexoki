@@ -7,6 +7,7 @@ import Link from "@/components/ui/Link.astro";
 import Container from "@/components/layout/Container.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
 import Button from '@/components/ui/Button.astro';
+import PageHeader from "@/components/layout/PageHeader.astro";
 
 export async function getStaticPaths() {
   const allPosts = await getAllPosts();
@@ -38,7 +39,7 @@ const isActive = (link: string) =>
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-    <!-- <PageHeader title={`#${tag}`} subtitle={`Showing posts from ${tag}`} /> -->
+    
     <Button
       href="/"
       class="mb-4"
@@ -47,11 +48,11 @@ const isActive = (link: string) =>
       arrow="backward"
       size="sm"
     />
-    <section class="flex flex-col gap-2">
-      <p class="text-md text-muted-txt">Showing posts from </p>
-      <h1 class="text-3xl font-bold text-primary-txt">#{tag}</h1>
-      
-    </section>
+    <!-- <section class="flex flex-col gap-2">
+      <p class="text-md text-content-muted">Showing posts from </p>
+      <h1 class="text-3xl font-bold text-content-primary">#{tag}</h1>
+    </section> -->
+    <PageHeader title={`#${tag}`} subtitle={`Showing posts tagged with #${tag}`} />
     <div class="py-8">
       <div class="flex flex-col mb-6 gap-4">
         <!-- <h2 class="text-xl font-semibold">All Tags</h2> -->
@@ -61,7 +62,7 @@ const isActive = (link: string) =>
               size="sm"
               style="primary"
               accent='orange'
-              class={`text-muted-txt font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-secondary-bg' : ''}`}
+              class={`text-content-muted font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-base-muted' : ''}`}
             >
               <Link
                 href={`/tags/${tag}`}
