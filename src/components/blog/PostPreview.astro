@@ -21,7 +21,7 @@ const postURL = `articles/${slugify(singlePost.id)}`;
       {singlePost.data.title}
     </span>
     <span class="text-sm text-content-subtle justify-start px-2">
-      <FormattedDate date={singlePost.data.publishedDate} dateFormat="long" />
+      <FormattedDate date={singlePost.data.publishedDate} dateFormat="short" />
     </span>
   </a>
 </article>
