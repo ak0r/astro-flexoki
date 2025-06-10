@@ -1,110 +1,38 @@
 ---
-interface Props {
-  as?: string
-  style?: 'pill' | 'rounded' | undefined
-  arrow?: 'forward' | 'backward' | undefined
-  title?: string
-  href?: string
-  size?: 'lg' | 'md' | 'sm' | undefined
-  class?: string
-  [x: string]: any
-}
+import type { HTMLAttributes } from "astro/types";
+import { type VariantProps, tv } from "tailwind-variants";
 
-const {
-  as: Tag = 'a',
-  style = 'pill',
-  arrow = '',
-  title,
-  size = 'md',
-  href,
-  class: className,
-  ...rest
-} = Astro.props
+interface Props
+	extends HTMLAttributes<"button">,
+		Omit<HTMLAttributes<"a">, "type">,
+		VariantProps<typeof button> {}
 
-const styles = {
-  pill: "rounded-full",
-  rounded: "rounded-lg",
-};
+const { variant, size, class: className, ...rest } = Astro.props;
 
-const sizes = {
-  lg: "px-5 py-3",
-  md: "px-4 py-2",
-  sm: "px-3 py-1",
-};
+const button = tv({
+	base: [
+		"inline-flex items-center gap-1.5 rounded-md font-medium whitespace-nowrap",
+	],
+	variants: {
+		variant: {
+			default: "bg-base-muted text-content-muted hover:bg-base-subtle",
+			primary: "bg-accent text-accent-low hover:bg-accent/90 focus-visible:outline-accent",
+			outline: "border-ui-primary hover:bg-base-muted hover:text-content-primary focus-visible:outline-ui-primary border",
+			ghost: "text-content-muted bg-transperent hover:bg-base-muted/70 hover:text-content-primary focus-visible:outline-ui-primary bg-transparent",
+		},
+		size: {
+			sm: "px-3 py-2 text-sm",
+			md: "px-4 py-2 text-base",
+			lg: "px-8 py-2 text-lg",
+			icon: "size-6",
+		},
+	},
+	defaultVariants: { variant: "default", size: "md" },
+});
 
+const Tag = Astro.props.href ? "a" : "button";
 ---
 
-<Tag
-  {...rest}
-  class:list={[
-    'group inline-flex items-center gap-x-1 text-muted-txt hover:text-primary-txt bg-secondary-bg/10 hover:bg-secondary-bg border-2 border-primary-ui hover:border-hover-ui text-sm font-medium transition-all no-underline',
-    !href && 'cursor-default',
-    styles[style],
-    sizes[size],
-    className,
-  ]}
-  href={href}
-  data-astro-prefetch
->
-  <slot name='before'>
-    {
-      arrow === 'backward' && (
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='16'
-          height='16'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke-width='2.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          class='stroke-muted-txt group-hover:stroke-primary-txt'
-        >
-          <line
-            x1='19'
-            y1='12'
-            x2='5'
-            y2='12'
-            class='translate-x-3 scale-x-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:scale-x-100'
-          />
-          <polyline
-            points='12 19 5 12 12 5'
-            class='translate-x-1 transition-all duration-300 ease-in-out group-hover:translate-x-0'
-          />
-        </svg>
-      )
-    }
-  </slot>
-  <slot>
-    {title && <p class='my-0'>{title}</p>}
-  </slot>
-  <slot name='after'>
-    {
-      arrow === 'forward' && (
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='16'
-          height='16'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke-width='2.5'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          class='stroke-muted-txt group-hover:stroke-primary-txt'
-        >
-          <line
-            x1='5'
-            y1='12'
-            x2='19'
-            y2='12'
-            class='translate-x-4 scale-x-0 transition-all duration-300 ease-in-out group-hover:translate-x-1 group-hover:scale-x-100'
-          />
-          <polyline
-            points='12 5 19 12 12 19'
-            class='translate-x-0 transition-all duration-300 ease-in-out group-hover:translate-x-1'
-          />
-        </svg>
-      )
-    }
-  </slot>
+<Tag class={button({ variant, size, class: className })} {...rest}>
+	<slot />
 </Tag>

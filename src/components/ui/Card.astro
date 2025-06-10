@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+
+type Props = {
+  title: string;
+  icon?: string;
+  class?: string;
+};
+
+const {
+  title,
+  icon,
+  class: className,
+  ...attributes
+} = Astro.props;
+
+---
+
+<article 
+  class:list={[
+    "card bg-base-muted flex flex-col gap-4 p-4 rounded-lg",
+    className,
+  ]}  
+  {...attributes}>
+    <div class="title flex flex-row align-middle items-center gap-4">
+      {icon && <Icon name={icon} class="icon" size="24" />}
+      <span class="text-3xl" set:html={title} />
+    </div>
+    <div class="body text-md"><slot /></div>
+</article>

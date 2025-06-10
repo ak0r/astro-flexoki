@@ -1,0 +1,45 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Icon } from "astro-icon/components";
+import { type VariantProps, tv } from "tailwind-variants";
+
+
+interface Props 
+  extends Omit<HTMLAttributes<'a'>, 'type'>,
+    VariantProps<typeof linkButton> {
+    icon?: string;
+    iconPlacement?: 'start' | 'end';
+    }
+
+// TODO: Fix the icon placement logic to work with both start and end placements
+
+const linkButton = tv({
+  base: 'link-button items-center justify-start inline-flex text-base',
+  variants: {
+    variant: {
+      primary: 'bg-accent text-accent-low px-3 py-2 rounded-lg',
+      outline: 'border border-ui-primary text-content-muted hover:border-ui-hover hover:text-content-primary px-3 py-2 rounded-lg',
+      minimal: 'text-content-muted hover:text-content-primary',
+    },
+    iconPlacement: {
+      start: 'flex-row',
+      end: 'flex-row-reverse',
+    },
+  },
+  defaultVariants: {
+    variant: 'minimal',
+  },
+});
+
+const Tag = Astro.props.href ? "a" : "button";
+const icon = Astro.props.icon;
+const iconPlacement = Astro.props.iconPlacement || 'end';
+---
+<Tag
+  class:list={[linkButton({ variant: Astro.props.variant, iconPlacement: Astro.props.iconPlacement }), Astro.props.class]}
+  {...Astro.props}
+>
+  {icon && iconPlacement === 'start' && <Icon name={icon} size="24" />}
+  <slot />
+  {icon && iconPlacement === 'end' && <Icon name={icon} size="24" />}
+</Tag>
