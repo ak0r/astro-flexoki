@@ -1,51 +1,39 @@
 ---
-interface Props {
-  style?: 'primary' | 'outline';
-  size?: 'sm' | 'md';
-  accent?: 'default' | 'red' | 'orange' | 'yellow' | 'green' | 'cyan' | 'blue' | 'purple' | 'magenta';
-  class?: string;
-  [x: string]: any;
-}
+import type { HTMLAttributes } from "astro/types";
+import { type VariantProps, tv } from "tailwind-variants";
 
-const {
-  style = 'primary',
-  size = 'md',
-  accent = 'default',
-  class: className,
-  ...rest
-} = Astro.props;
+interface Props
+	extends HTMLAttributes<"div">,
+		Omit<HTMLAttributes<"a">, "type">,
+		VariantProps<typeof badge> {}
 
-const sizes = {
-  md: "px-4 py-2 text-sm",
-  sm: "px-3 py-1 text-xs",
-};
+const badge = tv({
+  base: "badge inline-flex items-center rounded-full font-semibold",
+  variants: {
+    variant: {
+      default: "bg-base-muted text-content-muted",
+      note: "bg-blue text-blue-low",
+      tip: "bg-yellow text-yellow-low",
+      success: "bg-green text-green-low",
+      caution: "bg-orange text-orange-low",
+      danger: "bg-red text-red-low",
+    },
+    size: {
+      sm: "px-2 py-1 text-xs",
+      md: "px-3 py-1 text-sm",
+      lg: "px-4 py-2 text-base",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+});
 
-const accentClasses = {
-  red: "border-accent-red/50 hover:bg-accent-red/20",
-  orange: "border-accent-orange/50 hover:bg-accent-orange/20",
-  yellow: "border-accent-yellow/50 hover:bg-accent-yellow/20",
-  green: "border-accent-green/50 hover:bg-accent-green/20",
-  cyan: "border-accent-cyan/50 hover:bg-accent-cyan/20",
-  blue: "border-accent-blue/50 hover:bg-accent-blue/20",
-  purple: "border-accent-purple/50 hover:bg-accent-purple/20",
-  magenta: "border-accent-magenta/50 hover:bg-accent-magenta/20",
-  default: "border-primary-ui hover:bg-secondary-bg/20",
-};
-
-const styles = {
-  primary: `bg-secondary-bg/50 hover:bg-secondary-bg border-2 border-primary-ui hover:border-active-ui`,
-  outline: `border-2 ${accentClasses[accent]}`,
-};
+const { variant, size, class: className, ...rest } = Astro.props;
+const Tag = "div"
 ---
 
-<span
-  {...rest}
-  class:list={[
-    "inline-flex items-center rounded-full",
-    sizes[size],
-    styles[style],
-    className,
-  ]}
->
-  <slot />
-</span>
+<Tag class={badge({ variant, size, class: className })} {...rest}>
+	<slot />
+</Tag>

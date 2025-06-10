@@ -6,6 +6,7 @@ import PageHeader from "@/components/layout/PageHeader.astro";
 import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import Button from '@/components/ui/Button.astro';
+import BackButton from '@/components/widgets/BackButton.astro';
 
 const allPosts = await getAllPosts();
 // const allTags = getUniqueTagsWithCount(allPosts);
@@ -16,18 +17,14 @@ const {
   itemCounts: tagCounts 
 } = getTaxonomyWithCounts(allPosts, 'tags');
 
-
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-    <Button
-        href="/"
-        class="mb-4"
-        title="Back"
-        style="rounded"
-        arrow="backward"
-        size="sm"
-      />
+    <!-- Back button -->
+    <BackButton
+      title="Home"
+      href="/"
+    />
     <PageHeader title="Tags" subtitle="Explore posts by tags." />
       <div class="flex flex-wrap gap-4 py-8">
         {
@@ -39,7 +36,6 @@ const {
                 size="sm"
                 style="primary"
                 class="font-semibold text-content-muted"
-                accent='orange'
               >
                 <Link
                   href={`/tags/${tag}`}

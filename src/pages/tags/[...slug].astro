@@ -6,7 +6,7 @@ import Badge from "@/components/ui/Badge.astro";
 import Link from "@/components/ui/Link.astro";
 import Container from "@/components/layout/Container.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
-import Button from '@/components/ui/Button.astro';
+import BackButton from '@/components/widgets/BackButton.astro';
 import PageHeader from "@/components/layout/PageHeader.astro";
 
 export async function getStaticPaths() {
@@ -39,19 +39,13 @@ const isActive = (link: string) =>
 ---
 <PageLayout>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-    
-    <Button
-      href="/"
-      class="mb-4"
-      title="Back"
-      style="rounded"
-      arrow="backward"
-      size="sm"
+
+    <!-- Back button -->
+    <BackButton
+      title="All Tags"
+      href="/tags"
     />
-    <!-- <section class="flex flex-col gap-2">
-      <p class="text-md text-content-muted">Showing posts from </p>
-      <h1 class="text-3xl font-bold text-content-primary">#{tag}</h1>
-    </section> -->
+
     <PageHeader title={`#${tag}`} subtitle={`Showing posts tagged with #${tag}`} />
     <div class="py-8">
       <div class="flex flex-col mb-6 gap-4">
@@ -60,9 +54,8 @@ const isActive = (link: string) =>
           {allTags.map((tag) => (
             <Badge
               size="sm"
-              style="primary"
-              accent='orange'
-              class={`text-content-muted font-semibold ${isActive(`/tags/${slugify(tag)}`) ? 'bg-base-muted' : ''}`}
+              variant={`${isActive(`/tags/${slugify(tag)}`) ? 'note' : 'default'}`}
+              class="font-semibold"
             >
               <Link
                 href={`/tags/${tag}`}
