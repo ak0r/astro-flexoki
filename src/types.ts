@@ -36,7 +36,8 @@ export interface NavItem {
 }
 
 export interface SiteSettings {
-  accentColor: string;
+  defaultTheme: 'light' | 'dark' | 'auto';
+  accentColor: 'orange' | 'green' | 'blue' | 'red' | 'yellow' | 'cyan' | 'magenta' | 'purple';
   postsPerPage: number;
   copyright: string;
   showNewsletterSignup?: boolean;

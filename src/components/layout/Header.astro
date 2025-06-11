@@ -3,6 +3,9 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
 import Container from '@/components/layout/Container.astro';
 import Link from '@/components/ui/Link.astro';
 import Button from "@/components/ui/Button.astro"
+import { siteConfig } from "@/site.config";
+const { siteLogo, nav, settings } = siteConfig;
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="fixed top-0 w-full h-[76px] border-b border-ui-primary z-50 backdrop-blur-lg">
@@ -10,11 +13,11 @@ import Button from "@/components/ui/Button.astro"
   <!-- Mobile menu -->
   <div id="navMenu" class="fixed bg-base-primary shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
     <div class="flex flex-col min-h-screen w-full bg-base-primary">
-      <div class="">
+      <div class="items-center justify-center">
         <!-- Logo -->
         <div class="flex items-center justify-between font-medium px-6 py-2 h-[76px] border-b border-ui-primary">
           <a class="flex items-center gap-2" href="/">
-            <h3 class="font-bold">Umami</h2>  
+            <h3 class="font-bold">{siteConfig.title}</h2>  
           </a>
           <div id="closeBtn" class="text-content-primary hover:cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
@@ -24,15 +27,25 @@ import Button from "@/components/ui/Button.astro"
         </div>
         <!-- Links -->
         <div class="flex flex-col gap-3 px-2 py-8">
-          <Link href="/articles" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</Link>
-          <Link href="/tags" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/tags' ? 'page' : undefined}>Tags</Link>
-          <Link href="/about" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</Link>
-          
-          <!-- Subscribe button -->
-          <Button href="/" variant="primary" class="px-4">
-            Subscribe Now
-          </Button>
+          {
+            nav.map((item) => (
+              <Link 
+                href={item.href} 
+                class={`px-4 py-2 text-sm hover:text-${settings?.accentColor}-high ${
+                  currentPath === item.href
+                    ? `text-${settings?.accentColor} font-semibold`
+                    : 'text-content-primary' }`
+                } 
+                aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.title}</Link>
+            ))
+          }
         </div>
+        <!-- Subscribe button -->
+          {settings?.showNewsletterSignup && (
+            <Button href="/" variant="primary" class="px-4">
+              Subscribe Now
+            </Button>
+          )}
       </div>
     </div>
   </div>
@@ -42,14 +55,24 @@ import Button from "@/components/ui/Button.astro"
     <nav class="flex h-full w-full">
       <!-- Logo -->
       <a class="flex items-center gap-2" href="/">
-        <h3 class="font-bold">Umami</h2>
+        <h3 class="font-bold">{siteConfig.title}</h3>
       </a>
-
+      
+      
       <!-- Centered Links (only visible on sm and up) -->
       <div class="hidden sm:flex flex-1 justify-center items-center gap-4 text-base">
-        <Link href="/articles" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</Link>
-        <Link href="/tags" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/tags' ? 'page' : undefined}>Tags</Link>
-        <Link href="/about" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</Link>
+        {
+          nav.map((item) => (
+            <Link 
+              href={item.href} 
+              class={`px-4 py-2 text-sm hover:text-${settings?.accentColor}-high ${
+                currentPath === item.href
+                  ? `text-${settings?.accentColor} font-semibold`
+                  : 'text-content-primary' }`
+              } 
+              aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.title}</Link>
+          ))
+        }
       </div>
 
       <!-- Right section -->

@@ -57,10 +57,10 @@ export const siteConfig: SiteConfig = {
 
   // Site settings for customization
   settings: {
-    accentColor: 'blue',
-    postsPerPage: 10,
+    defaultTheme: 'light', // Options: 'light', 'dark', 'auto'
+    accentColor: 'orange', // Options: 'orange', 'green', 'blue', 'red', 'yellow', 'cyan', 'magenta', 'purple'
+    postsPerPage: 6,
     copyright: '© 2025 Astro Flexoki. All rights reserved.',
     showNewsletterSignup: true,
-    enableDarkMode: true,
   },
 };
