@@ -16,7 +16,7 @@ import Button from "@/components/ui/Button.astro"
           <a class="flex items-center gap-2" href="/">
             <h3 class="font-bold">Umami</h2>  
           </a>
-          <div id="closeBtn" class="">
+          <div id="closeBtn" class="text-content-primary hover:cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>                  
@@ -56,11 +56,6 @@ import Button from "@/components/ui/Button.astro"
       <div class="flex items-center gap-3 ml-auto">
         <!-- Theme Switcher (always visible) -->
         <ThemeSwitch />
-
-        <!-- Subscribe button (only on sm and up) -->
-        <!-- <Button href="/" class="ml-4" style="pill">
-          Subscribe
-        </Button> -->
 
         <!-- Mobile nav button (only on small screens) -->
         <div id="navBtn" class="sm:hidden text-content-primary hover:cursor-pointer">
