@@ -79,10 +79,10 @@
       @apply pl-6 relative;
       &::after,
       &::before {
-        @apply absolute content-[""] h-1 w-1 rounded-full bg-accent-orange left-2 top-3 -translate-y-[2px];
+        @apply absolute content-[""] h-1 w-1 rounded-full bg-orange left-2 top-3 -translate-y-[2px];
       }
       &::before {
-        @apply h-3 w-3 bg-accent-orange/50 left-1 top-2;
+        @apply h-3 w-3 bg-orange-low left-1 top-2;
       }
     }
   }

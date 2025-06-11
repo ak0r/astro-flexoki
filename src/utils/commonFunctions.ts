@@ -44,11 +44,11 @@ export function getFormattedDate(
 
   if (format === 'short') {
     const options: Intl.DateTimeFormatOptions = { month: 'short', day: '2-digit' };
-    return new Intl.DateTimeFormat('en-US', options)
+    return new Intl.DateTimeFormat('en-UK', options)
       .format(parsedDate)
-      .replace(/\s/, '-'); // e.g., "Mar 03" → "Mar-03"
+      // .replace(/\s/, '-'); // e.g., "Mar 03" → "Mar-03"
   }
 
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: '2-digit' };
-  return new Intl.DateTimeFormat('en-US', options).format(parsedDate);
+  return new Intl.DateTimeFormat('en-UK', options).format(parsedDate);
 }

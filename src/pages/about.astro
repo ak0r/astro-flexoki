@@ -3,7 +3,12 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import Container from "@/components/layout/Container.astro";
 import { Icon } from "astro-icon/components";
 import Link from "@/components/ui/Link.astro";
-
+import LinkCard from "@/components/ui/LinkCard.astro";
+import Card from "@/components/ui/Card.astro";
+import TestBadge from "@/components/ui/TestBadge.astro";
+import LinkButton from "@/components/ui/LinkButton.astro";
+import NewBadge from "@/components/ui/NewBadge.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
 <PageLayout>
@@ -12,7 +17,7 @@ import Link from "@/components/ui/Link.astro";
       <!-- Avatar -->
       <div class="lg:pl-20">
         <div class="p-2 lg:max-w-none max-w-xs">
-          <img class="h-full object-cover rounded-lg rotate-3 aspect-square" loading="lazy" src="https://picsum.photos/400/400?random=1.webp" alt="Being with nature.">
+          <img class="h-full object-cover rounded-lg rotate-3 aspect-square shadow-md" loading="lazy" src="https://picsum.photos/400/400?random=1.webp" alt="Being with nature.">
         </div>
       </div>
       <!-- About Me -->
@@ -61,10 +66,10 @@ import Link from "@/components/ui/Link.astro";
             </Link>
           </li>
           <li class="mt-8 border-t border-t-muted/10 pt-8 flex">
-            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
-              <Icon name="hugeicons:mail-01" class="size-6" />
-               <span class="ml-4">Follow on YouTube</span>
-            </Link>
+            <LinkButton href="mailto:abc@example.com" class="group flex text-sm font-medium transition">
+              <Icon name="hugeicons:mail-01" size="24" />
+              <span class="ml-4">Drop a note</span>
+            </LinkButton>
           </li>
         </ul>
       </div>

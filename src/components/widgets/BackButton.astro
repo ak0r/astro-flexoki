@@ -1,0 +1,32 @@
+---
+import LinkButton from '@/components/ui/LinkButton.astro';
+import { Icon } from 'astro-icon/components';
+
+type Props = {
+  href: string;
+  title: string;
+  class?: string;
+};
+
+
+const {
+  href,
+  title,
+  class: className,
+  ...rest
+} = Astro.props;
+
+---
+
+<LinkButton
+  href={href}
+  variant='minimal'
+  class:list={[
+    className,
+    'mb-4'
+  ]}
+  {...rest}
+>
+  <Icon name="hugeicons:arrow-left-02"></Icon>
+  &nbsp; {title}
+</LinkButton>

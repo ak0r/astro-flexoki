@@ -6,7 +6,7 @@ import PageLayout from "@/layouts/PageLayout.astro";
 import Container from "@/components/layout/Container.astro";
 import PageHeader from "@/components/layout/PageHeader.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
-import Button from '@/components/ui/Button.astro';
+import BackButton from '@/components/widgets/BackButton.astro';
 
 const allPosts = await getAllPosts();
 const postsByYear = groupPostsByYear(allPosts);
@@ -19,16 +19,13 @@ const sortedYears = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a
 ---
 <PageLayout>
 		<Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
-      <Button
-        href="/"
-        class="mb-4"
-        title="Back"
-        style="rounded"
-        arrow="backward"
-        size="sm"
-      />
+      <!-- Back button -->
+    <BackButton
+      title="Home"
+      href="/"
+    />
       <PageHeader title="Blog Archive" subtitle="A chronological list of published posts, grouped by year." />
-      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-4">
+      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-6">
       {
         sortedPostsByYear.length === 0 ? (
           <div class="py-2 op-50">nothing here yet</div>

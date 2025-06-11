@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	title: string;
+	description?: string;
+  iconPlacement?: 'start' | 'end' | undefined;
+}
+
+const { 
+	title, 
+	description, 
+	iconPlacement = "start", 
+	...attributes 
+} = Astro.props;
+
+---
+<a {...attributes}>
+	<div class="link-card flex p-4 gap-4 border-1 border-ui-primary rounded-lg hover:bg-base-muted hover:border-ui-hover group">
+		{ iconPlacement === 'start' && <Icon name="ri:arrow-left-line" size="24" /> }
+		<span class="flex flex-col">
+			<span class="title text-lg font-bold" set:html={title} />
+			{description && <span class="description text-base text-ao-textMuted" set:html={description} />}
+		</span>
+		{ iconPlacement === 'end' && <Icon name="ri:arrow-right-line" size="24" /> }
+	</div>
+</a>
