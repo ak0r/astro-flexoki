@@ -1,15 +1,23 @@
 ---
 import Container from "./Container.astro";
+import Link from '@/components/ui/Link.astro';
+import { siteConfig } from "@/site.config";
+const { footerLinks, settings } = siteConfig;
 ---
 
 <footer class="w-full border-t border-ui-primary ">
   <Container outerClass="flex max-w-4xl px-6 py-2 mx-auto w-full">
     <div class="flex justify-between gap-3 py-8 w-full">
-      <div class="flex gap-3 text-content-muted">
-        <a href="/">Privacy Policy</a>
-        <a href="/">Terms of Service</a>
+      <div class="flex gap-3 text-content-muted text-sm">
+        {
+          footerLinks.map((link) => (
+            <Link href={link.href}>
+              {link.title}
+            </Link>
+          ))
+        }
       </div>
-      <div class="flex text-sm text-content-muted">© 2025 Umami. All rights reserved.</div>
+      <div class="flex text-sm text-content-muted">{siteConfig.settings?.copyright}</div>
     </div>
   </Container>
 </footer>

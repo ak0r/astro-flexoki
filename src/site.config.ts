@@ -51,7 +51,6 @@ export const siteConfig: SiteConfig = {
   footerLinks: [
     { title: 'Privacy Policy', href: '/privacy' },
     { title: 'Terms of Use', href: '/terms' },
-    { title: 'Contact', href: '/contact' },
     { title: 'Sitemap', href: '/sitemap.xml' },
   ],
 

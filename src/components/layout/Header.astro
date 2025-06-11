@@ -27,18 +27,18 @@ const currentPath = Astro.url.pathname;
         </div>
         <!-- Links -->
         <div class="flex flex-col gap-3 px-2 py-8">
-          {
-            nav.map((item) => (
-              <Link 
-                href={item.href} 
-                class={`px-4 py-2 text-sm hover:text-${settings?.accentColor}-high ${
-                  currentPath === item.href
-                    ? `text-${settings?.accentColor} font-semibold`
-                    : 'text-content-primary' }`
-                } 
-                aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.title}</Link>
-            ))
-          }
+        {
+          nav.map((item) => (
+            <Link 
+              href={item.href} 
+              class={`px-4 py-2 text-sm ${
+                currentPath === item.href
+                  ? `text-${settings?.accentColor} font-semibold`
+                  : 'text-content-primary' }`
+              } 
+              aria-current={Astro.url.pathname === item.href ? 'page' : undefined}>{item.title}</Link>
+          ))
+        }
         </div>
         <!-- Subscribe button -->
           {settings?.showNewsletterSignup && (
@@ -65,7 +65,7 @@ const currentPath = Astro.url.pathname;
           nav.map((item) => (
             <Link 
               href={item.href} 
-              class={`px-4 py-2 text-sm hover:text-${settings?.accentColor}-high ${
+              class={`px-4 py-2 text-sm ${
                 currentPath === item.href
                   ? `text-${settings?.accentColor} font-semibold`
                   : 'text-content-primary' }`
