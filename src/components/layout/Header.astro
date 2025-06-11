@@ -1,51 +1,55 @@
 ---
-import { Icon } from 'astro-icon/components';
 import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
-import Container from './Container.astro';
+import Container from '@/components/layout/Container.astro';
+import Link from '@/components/ui/Link.astro';
+import Button from "@/components/ui/Button.astro"
 ---
 
-<header class="fixed top-0 w-full h-[76px] border-b border-ink/10 z-50 backdrop-blur-lg">
+<header class="fixed top-0 w-full h-[76px] border-b border-ui-primary z-50 backdrop-blur-lg">
 
   <!-- Mobile menu -->
-  <div id="navMenu" class="fixed bg-umami-bg shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
-    <div class="flex flex-col px-4 min-h-screen w-full bg-umami-bg">
-      <!-- Logo -->
-      <div class="flex items-center justify-between font-medium px-4 py-2 h-[76px] border-b border-ink/10">
-        <a class="flex items-center gap-2" href="/">
-          <div class="text-lg font-bold">Umami</div>
-        </a>
-        <div id="closeBtn" class="">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>                  
+  <div id="navMenu" class="fixed bg-base-primary shadow-sm h-full w-full text-xl sm:w-1/2 sm:text-2xl transform transition-transform duration-300 -translate-x-full z-50">
+    <div class="flex flex-col min-h-screen w-full bg-base-primary">
+      <div class="">
+        <!-- Logo -->
+        <div class="flex items-center justify-between font-medium px-6 py-2 h-[76px] border-b border-ui-primary">
+          <a class="flex items-center gap-2" href="/">
+            <h3 class="font-bold">Umami</h2>  
+          </a>
+          <div id="closeBtn" class="">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>                  
+          </div>
         </div>
-      </div>
-      <!-- Links -->
-      <div class="flex flex-col gap-3 py-8">
-        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
-        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
-      </div>
-      <!-- Subscribe button -->
-      <div class="px-4 py-2">
-        <button class="text-lg font-medium border border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
-          Subscribe
-        </button>
+        <!-- Links -->
+        <div class="flex flex-col gap-3 px-2 py-8">
+          <Link href="/articles" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</Link>
+          <Link href="/tags" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/tags' ? 'page' : undefined}>Tags</Link>
+          <Link href="/about" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</Link>
+          
+          <!-- Subscribe button -->
+          <Button href="/" variant="primary" class="px-4">
+            Subscribe Now
+          </Button>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Main Navigation -->
-  <Container outerClass="flex flex-col max-w-4xl px-2 py-2 mx-auto h-full">
-    <nav class="flex h-full w-full px-4 ">
+  <Container outerClass="flex flex-col max-w-4xl h-full">
+    <nav class="flex h-full w-full">
       <!-- Logo -->
       <a class="flex items-center gap-2" href="/">
-        <div class="text-lg font-bold">Umami</div>
+        <h3 class="font-bold">Umami</h2>
       </a>
 
       <!-- Centered Links (only visible on sm and up) -->
       <div class="hidden sm:flex flex-1 justify-center items-center gap-4 text-base">
-        <a href="/articles" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</a>
-        <a href="/about" class="px-4 py-2 text-umami-tx-2 hover:text-umami-tx" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</a>
+        <Link href="/articles" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/articles' ? 'page' : undefined}>Articles</Link>
+        <Link href="/tags" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/tags' ? 'page' : undefined}>Tags</Link>
+        <Link href="/about" class="px-4 py-2 text-content-primary" aria-current={Astro.url.pathname === '/about' ? 'page' : undefined}>About</Link>
       </div>
 
       <!-- Right section -->
@@ -54,12 +58,12 @@ import Container from './Container.astro';
         <ThemeSwitch />
 
         <!-- Subscribe button (only on sm and up) -->
-        <button class="text-base font-medium border-2 border-umami-ui rounded-3xl py-2 px-3 hover:border-umami-ui-2">
-          <a href="#"> Subscribe </a>
-        </button>
+        <!-- <Button href="/" class="ml-4" style="pill">
+          Subscribe
+        </Button> -->
 
         <!-- Mobile nav button (only on small screens) -->
-        <div id="navBtn" class="sm:hidden text-ink hover:cursor-pointer opacity-60 hover:opacity-100">
+        <div id="navBtn" class="sm:hidden text-content-primary hover:cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" class="size-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
           </svg>

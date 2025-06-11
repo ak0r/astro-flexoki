@@ -1,0 +1,88 @@
+---
+import { getAllPosts, getUniqueTags, getTaxonomyWithCounts } from "@/utils/getData";
+import { slugify } from "@/utils/commonFunctions";
+import PageLayout from "@/layouts/PageLayout.astro";
+import Badge from "@/components/ui/Badge.astro";
+import Link from "@/components/ui/Link.astro";
+import Container from "@/components/layout/Container.astro";
+import PostPreview from "@/components/blog/PostPreview.astro";
+import BackButton from '@/components/widgets/BackButton.astro';
+import PageHeader from "@/components/layout/PageHeader.astro";
+
+export async function getStaticPaths() {
+  const allPosts = await getAllPosts();
+  const uniqueTags = getUniqueTags(allPosts);
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.tags?.includes(tag))
+      .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+    return {
+      params: { slug: slugify(tag) },
+      props: { posts: filteredPosts, tag },
+    };
+  });
+}
+
+const { posts, tag } = Astro.props;
+const allPosts = await getAllPosts();
+
+const {
+  allItems: allTags,
+  itemCounts: tagCounts 
+} = getTaxonomyWithCounts(allPosts, 'tags');
+
+// is link active
+const currentPath = Astro.url.pathname;
+const isActive = (link: string) => 
+  currentPath === link || currentPath === link + "/";
+
+---
+<PageLayout>
+  <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
+
+    <!-- Back button -->
+    <BackButton
+      title="All Tags"
+      href="/tags"
+    />
+
+    <PageHeader title={`#${tag}`} subtitle={`Showing posts tagged with #${tag}`} />
+    <div class="py-8">
+      <div class="flex flex-col mb-6 gap-4">
+        <!-- <h2 class="text-xl font-semibold">All Tags</h2> -->
+        <div class="flex flex-wrap gap-4">
+          {allTags.map((tag) => (
+            <Badge
+              size="sm"
+              variant={`${isActive(`/tags/${slugify(tag)}`) ? 'note' : 'default'}`}
+              class="font-semibold"
+            >
+              <Link
+                href={`/tags/${tag}`}
+                class=""
+              > 
+                #{tag}
+                { tagCounts[tag] > 1 && (
+                  <span class="text-xs font-normal">
+                    &nbsp;{tagCounts[tag]} post{tagCounts[tag] > 1 && "s"}
+                  </span>
+                )}
+              </Link>
+            </Badge>
+          ))}
+        </div>
+      </div>
+      <div aria-label="Post list" class="flex flex-col py-8 gap-y-6 space-y-4">
+        <div class="flex flex-col gap-y-6 z-20">
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <PostPreview singlePost={post} />
+            ))
+          ) : (
+            <p>No posts found for this tag.</p>
+          )}
+        </div>
+      </div>
+    </div>
+  </Container>
+</PageLayout>

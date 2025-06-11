@@ -1,7 +1,14 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
 import Container from "@/components/layout/Container.astro";
-
+import { Icon } from "astro-icon/components";
+import Link from "@/components/ui/Link.astro";
+import LinkCard from "@/components/ui/LinkCard.astro";
+import Card from "@/components/ui/Card.astro";
+import TestBadge from "@/components/ui/TestBadge.astro";
+import LinkButton from "@/components/ui/LinkButton.astro";
+import NewBadge from "@/components/ui/NewBadge.astro";
+import Button from "@/components/ui/Button.astro";
 ---
 
 <PageLayout>
@@ -10,7 +17,7 @@ import Container from "@/components/layout/Container.astro";
       <!-- Avatar -->
       <div class="lg:pl-20">
         <div class="p-2 lg:max-w-none max-w-xs">
-          <img class="h-full object-cover rounded-lg rotate-3 aspect-square" loading="lazy" src="https://picsum.photos/400/400?random=1.webp" alt="Being with nature.">
+          <img class="h-full object-cover rounded-lg rotate-3 aspect-square shadow-md" loading="lazy" src="https://picsum.photos/400/400?random=1.webp" alt="Being with nature.">
         </div>
       </div>
       <!-- About Me -->
@@ -35,33 +42,34 @@ import Container from "@/components/layout/Container.astro";
       <div class="lg:pl-20">
         <ul class="mt-4">
           <li class="text-base font-medium mt-4">
-            <a class="group flex text-sm font-medium transition" href="www.x.com">
-              <!-- icon -->
+            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
+              <Icon name="hugeicons:new-twitter" class="size-6" />
                <span class="ml-4">Follow on X</span>
-            </a>
+            </Link>
           </li>
           <li class="text-base font-medium mt-4">
-            <a class="group flex text-sm font-medium transition" href="www.youtube.com">
-              <!-- icon -->
-               <span class="ml-4">Follow on Youtube</span>
-            </a>
+            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
+              <Icon name="hugeicons:youtube" class="size-6" />
+               <span class="ml-4">Follow on YouTube</span>
+            </Link>
           </li>
           <li class="text-base font-medium mt-4">
-            <a class="group flex text-sm font-medium transition" href="www.instagram.com">
-              <!-- icon -->
+            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
+              <Icon name="hugeicons:instagram" class="size-6" />
                <span class="ml-4">Follow on Instagram</span>
-            </a>
+            </Link>
           </li>
           <li class="text-base font-medium mt-4">
-            <a class="group flex text-sm font-medium transition" href="www.instagram.com">
-              <!-- icon -->
+            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
+              <Icon name="hugeicons:github" class="size-6" />
                <span class="ml-4">Follow on Github</span>
-            </a>
+            </Link>
           </li>
           <li class="mt-8 border-t border-t-muted/10 pt-8 flex">
-            <a class="group flex text-sm font-medium transition" href="mailto:spencer@planetaria.tech">
-              <span class="ml-4">spencer@planetaria.tech</span>
-            </a>
+            <LinkButton href="mailto:abc@example.com" class="group flex text-sm font-medium transition">
+              <Icon name="hugeicons:mail-01" size="24" />
+              <span class="ml-4">Drop a note</span>
+            </LinkButton>
           </li>
         </ul>
       </div>
