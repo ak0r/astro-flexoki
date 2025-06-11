@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { slugify } from "@/utils/commonFunctions";
+import FormattedDate from "../widgets/FormattedDate.astro";
+
+type Props = {
+    singlePost: CollectionEntry<"blog">;
+}
+
+const { singlePost } = Astro.props;
+
+// const postURL = `${singlePost.collection}/${slugify(singlePost.id)}`;
+const postURL = `articles/${slugify(singlePost.id)}`;
+---
+<article>
+  <a 
+    href={`/${postURL}`}
+    class="flex flex-row space-x-4 md:px-4 md:py-3 rounded-lg align-middle items-center group"
+  >
+    <span class="text-content-muted hover:text-content-primary font-medium text-lg">
+      {singlePost.data.title}
+    </span>
+    <span class="text-sm text-content-subtle justify-start px-2">
+      <FormattedDate date={singlePost.data.publishedDate} dateFormat="short" />
+    </span>
+  </a>
+</article>

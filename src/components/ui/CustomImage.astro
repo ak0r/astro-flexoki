@@ -1,0 +1,31 @@
+---
+import Picture from "astro/components/Picture.astro";
+import { tv } from "tailwind-variants";
+
+const customImage = tv({ base: "relative z-1 h-auto w-full object-cover transition" });
+
+type Props = { 
+  src?: string;
+  alt: string; 
+  class?: string;
+  width?: number;
+  height?: number;
+};
+
+const { src, alt, width=600, height=400, class: className } = Astro.props;
+
+if (!src ) {
+	throw new Error("'src' is required for an image component.");
+}
+---
+<Picture
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  loading="lazy"
+  decoding="auto"
+  format="webp, avif"
+  class={customImage({ class: className })}
+  onerror="this.style.display='none'"
+/>

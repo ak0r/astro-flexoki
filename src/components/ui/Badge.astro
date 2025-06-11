@@ -1,0 +1,39 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { type VariantProps, tv } from "tailwind-variants";
+
+interface Props
+	extends HTMLAttributes<"div">,
+		Omit<HTMLAttributes<"a">, "type">,
+		VariantProps<typeof badge> {}
+
+const badge = tv({
+  base: "badge inline-flex items-center rounded-full font-semibold",
+  variants: {
+    variant: {
+      default: "bg-base-muted text-content-muted",
+      note: "bg-blue text-blue-low",
+      tip: "bg-yellow text-yellow-low",
+      success: "bg-green text-green-low",
+      caution: "bg-orange text-orange-low",
+      danger: "bg-red text-red-low",
+    },
+    size: {
+      sm: "px-2 py-1 text-xs",
+      md: "px-3 py-1 text-sm",
+      lg: "px-4 py-2 text-base",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "md",
+  },
+});
+
+const { variant, size, class: className, ...rest } = Astro.props;
+const Tag = "div"
+---
+
+<Tag class={badge({ variant, size, class: className })} {...rest}>
+	<slot />
+</Tag>

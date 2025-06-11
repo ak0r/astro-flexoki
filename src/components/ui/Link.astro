@@ -1,0 +1,33 @@
+---
+type Props = {
+  href: string;
+  external?: boolean;
+  underline?: boolean;
+  group?: boolean;
+  class?: string;
+};
+
+
+const {
+  href,
+  external,
+  underline = true,
+  group = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+---
+
+<a
+  href={href}
+  target={external ? "_blank" : "_self"}
+  
+  class:list={[
+    "block",
+    className,
+    group && "group",
+  ]}
+  {...rest}
+  ><slot />
+</a>

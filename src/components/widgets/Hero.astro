@@ -1,5 +1,6 @@
 ---
-import Container from "../layout/Container.astro"
+import Button from "@/components/ui/Button.astro"
+import CustomImage from "../ui/CustomImage.astro"
 ---
 <section class="w-full mt-6 sm:mt-12">
   <div class="flex flex-col md:flex-row flex-1 justify-center mx-auto md:align-middle gap-2">
@@ -12,14 +13,18 @@ import Container from "../layout/Container.astro"
         In this engaging blog, embark on a transformative adventure to uncover the secrets of self-inspiration and empowerment.
       </h3>
       <div>
-        <button class="text-base font-medium border-2 border-umami-ui rounded-3xl px-3 py-2 hover:border-umami-ui-2">
-          <a href="#"> Subscribe </a>
-        </button>
+        <Button href="/" variant="primary" class="ml-4">
+          Subscribe Now
+        </Button>
       </div> 
     </div>
     <!-- Hero image -->
     <div>
-      <img class="h-full object-cover rounded-lg" src="https://picsum.photos/900/600?random=1.webp" alt="Being with nature.">
+      <CustomImage
+          src="https://picsum.photos/900/600?random=1.webp"
+          alt="Being with nature."
+          class="shadow-xl h-full"
+        />
     </div>  
   </div>
 </section>

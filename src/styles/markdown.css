@@ -7,12 +7,12 @@
 	:not(pre *, .admonition *, details *, blockquote *, span, a, h1, h2, h3, h4, h5, h6):not(
 		:where(.not-content *)
 	) {
-	@apply text-primary-txt;
+	@apply text-content-primary;
 }
 
 /* paragraph spacing except for paragraphs inside list items */
 .markdown-content p:not(li p):not(:where(.not-content *)) {
-	@apply mt-4;
+	@apply mt-1;
 }
 
 /* Headings after non-headings have more spacing. */

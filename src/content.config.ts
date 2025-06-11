@@ -12,17 +12,20 @@ function removeDupsAndLowerCase(array: string[]) {
 const blogCollection = defineCollection({
   // Load Markdown and MDX files in the blog directory.
   loader: glob({ base: './src/content/articles', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
-    // required fields
-    title: z.string().max(60),
-    description: z.string(),
-    publishedDate: z.date(),
-    // optional fields
-    coverImage: z.string().optional(),
-    isDraft: z.boolean().default(false),
-    isFeatured: z.boolean().optional(),
-    tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase).optional(),
-  })
+  // Define the schema for the blog collection.
+  schema: ({ image }) => 
+    z.object({
+      // required fields
+      title: z.string().max(60),
+      description: z.string(),
+      publishedDate: z.date(),
+      // optional fields
+      coverImage: image().optional(),
+      coverImageAlt: z.string().optional(),
+      isDraft: z.boolean().default(false),
+      isFeatured: z.boolean().optional(),
+      tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase).optional(),
+    })
 });
 
 export const collections = {
