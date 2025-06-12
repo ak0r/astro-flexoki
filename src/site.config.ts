@@ -33,10 +33,10 @@ export const siteConfig: SiteConfig = {
 
   // Replace with your social media links
   socials: [
-    { name: 'GitHub', link: 'https://github.com/yourusername', icon: 'github' },
-    { name: 'Twitter', link: 'https://twitter.com/yourhandle', icon: 'twitter' },
-    { name: 'Instagram', link: 'https://instagram.com/yourprofile', icon: 'instagram' },
-    { name: 'LinkedIn', link: 'https://linkedin.com/in/yourprofile', icon: 'linkedin' },
+    { name: 'GitHub', href: 'https://github.com/yourusername', icon: 'hugeicons:github' },
+    { name: 'Twitter', href: 'https://twitter.com/yourhandle', icon: 'hugeicons:new-twitter' },
+    { name: 'Instagram', href: 'https://instagram.com/yourprofile', icon: 'hugeicons:instagram' },
+    { name: 'YouTube', href: 'https://youtube.com/in/yourprofile', icon: 'hugeicons:youtube' },
   ],
   
   // Navigation links for the main site menu

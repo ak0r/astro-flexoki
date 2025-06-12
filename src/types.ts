@@ -26,7 +26,7 @@ export interface SiteLogo {
 
 export interface SocialLink {
   name: string;
-  link: string;
+  href: string;
   icon: string;
 }
 
