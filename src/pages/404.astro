@@ -1,0 +1,30 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import Container from "@/components/layout/Container.astro";
+import { Icon } from "astro-icon/components";
+import LinkButton from "@/components/ui/LinkButton.astro";
+import BackButton from '@/components/widgets/BackButton.astro';
+import SocialLinks from "@/components/widgets/SocialLinks.astro";
+---
+
+<PageLayout
+  title="404 - Page Not Found"
+  description="The page you are looking for does not exist."
+>
+  <Container outerClass="max-w-4xl px-6 py-2 mx-auto h-full my-12">
+    <BackButton
+      title="Home"
+      href="/"
+    />
+    <div class="text-center space-y-6">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">404 - Page Not Found</h1>
+      <p class="text-lg text-ao-text-muted max-w-2xl mx-auto">
+        Oops! The page you are looking for does not exist or has been moved.
+      </p>
+      <LinkButton href="/" class="mt-4 flex gap-2 align-middle items-center">
+        <Icon name="hugeicons:home-09" class="size-6" />
+        <span>Go to Home</span>
+      </LinkButton>
+      <SocialLinks />
+  </Container>
+</PageLayout>

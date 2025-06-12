@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
   // Navigation links for the main site menu
   nav: [
     { title: 'Articles', href: '/articles' },
-    { title: 'Projects', href: '/projects' },
+    { title: 'Tags', href: '/tags' },
     { title: 'Notes', href: '/notes' },
     { title: 'About', href: '/about' },
   ],
