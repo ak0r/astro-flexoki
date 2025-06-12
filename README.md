@@ -14,11 +14,11 @@ A minimalist, fast, and elegant blog theme built with [Astro](https://astro.buil
 - 🎨 **Custom theming** using Flexoki’s harmonious color tokens
 - 🌗 **Light/Dark mode** toggle with `data-theme`
 - 🧠 **SEO optimized** with dynamic `<meta>` tags and OG support
-- ✍️ **Markdown-powered** posts, notes, and pages
-- 🖼️ Ready for dynamic **OG image generation** via Astro API
+- ✍️ **Markdown-powered** posts, notes*, and pages
 - 📱 Fully **responsive** and mobile-first
 - 🔗 Configurable **navigation, social, and footer links**
 - 📦 No heavy dependencies — just Astro and Tailwind CSS
+- 🖼️ Ready for dynamic **OG image generation** via Astro API (in progress)
 
 ---
 
