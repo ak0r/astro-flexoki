@@ -2,17 +2,20 @@
 import PageLayout from "@/layouts/PageLayout.astro";
 import Container from "@/components/layout/Container.astro";
 import { Icon } from "astro-icon/components";
-import Link from "@/components/ui/Link.astro";
-import LinkCard from "@/components/ui/LinkCard.astro";
-import Card from "@/components/ui/Card.astro";
-import TestBadge from "@/components/ui/TestBadge.astro";
 import LinkButton from "@/components/ui/LinkButton.astro";
-import NewBadge from "@/components/ui/NewBadge.astro";
-import Button from "@/components/ui/Button.astro";
+import BackButton from '@/components/widgets/BackButton.astro';
+import SocialLinks from "@/components/widgets/SocialLinks.astro";
 ---
 
-<PageLayout>
+<PageLayout
+  title="About Me"
+  description="Learn more about Astro Flexoki"
+>
   <Container outerClass="max-w-4xl px-6 py-2 mx-auto h-full my-12">
+    <BackButton
+      title="Home"
+      href="/"
+    />
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-16 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <!-- Avatar -->
       <div class="lg:pl-20">
@@ -22,56 +25,40 @@ import Button from "@/components/ui/Button.astro";
       </div>
       <!-- About Me -->
       <div class="lg:order-first lg:row-span-2">
-        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">I’m Spencer Sharp. I live in New York City, where I design the future.</h1>
+        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">This is Astro Flexoki</h1>
         <div class="mt-6 space-y-6 text-base text-flexoki-tx-2">
-          <p>
-            I've loved making things for as long as I can remember, and wrote my first program when I was 6 years old, just two weeks after my mom brought home the brand new Macintosh LC 550 that I taught myself to type on.
+          <p class="text-lg text-ao-text-muted max-w-2xl">
+            Astro Flexoki is a free, open-source blog theme built with ❤️ using
+            <a href="https://astro.build" class="underline text-ao-text-accent">Astro</a>,
+            <a href="https://tailwindcss.com" class="underline text-ao-text-accent">Tailwind CSS</a>,
+            and the beautiful
+            <a href="https://stephango.com/flexoki" class="underline text-ao-text-accent">Flexoki</a> color palette.
           </p>
-          <p>
-            The only thing I loved more than computers as a kid was space. When I was 8, I climbed the 40-foot oak tree at the back of our yard while wearing my older sister's motorcycle helmet, counted down from three, and jumped — hoping the tree was tall enough that with just a bit of momentum I'd be able to get to orbit.
+
+          <p class="mt-6 text-lg text-ao-text-muted max-w-2xl">
+            Designed for developers, tinkerers, and writers who care about performance and aesthetics,
+            this theme is minimal, accessible, and production-ready. Use it for your personal blog,
+            notes, or documentation site.
           </p>
-          <p>
-            I spent the next few summers indoors working on a rocket design, while I recovered from the multiple surgeries it took to fix my badly broken legs. It took nine iterations, but when I was 15 I sent my dad's Blackberry into orbit and was able to transmit a photo back down to our family computer from space.
-          </p>
-          <p>
-            Today, I'm the founder of Planetaria, where we're working on civilian space suits and manned shuttle kits you can assemble at home so that the next generation of kids really can make it to orbit — from the comfort of their own backyards.
+
+          <p class="mt-6 text-lg text-ao-text-muted max-w-2xl">
+            Maintained by <a href="https://github.com/ak0r" class="underline text-ao-text-accent">Amit K</a>.
+            Contributions and feedback are always welcome.
           </p>
         </div>
       </div>
       <!-- Social Links -->
       <div class="lg:pl-20">
-        <ul class="mt-4">
-          <li class="text-base font-medium mt-4">
-            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
-              <Icon name="hugeicons:new-twitter" class="size-6" />
-               <span class="ml-4">Follow on X</span>
-            </Link>
-          </li>
-          <li class="text-base font-medium mt-4">
-            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
-              <Icon name="hugeicons:youtube" class="size-6" />
-               <span class="ml-4">Follow on YouTube</span>
-            </Link>
-          </li>
-          <li class="text-base font-medium mt-4">
-            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
-              <Icon name="hugeicons:instagram" class="size-6" />
-               <span class="ml-4">Follow on Instagram</span>
-            </Link>
-          </li>
-          <li class="text-base font-medium mt-4">
-            <Link class="group flex text-sm font-medium transition hover:text-muted-txt text-primary-txt" href="www.linkedin.com">
-              <Icon name="hugeicons:github" class="size-6" />
-               <span class="ml-4">Follow on Github</span>
-            </Link>
-          </li>
-          <li class="mt-8 border-t border-t-muted/10 pt-8 flex">
+        <div class="flex flex-col gap-6">
+          <h3 class="text-xl font-bold tracking-tight sm:text-2xl">Connect with me</h3>
+          <SocialLinks />
+          <div class="mt-4 border-t border-t-ui-primary pt-4 flex">
             <LinkButton href="mailto:abc@example.com" class="group flex text-sm font-medium transition">
-              <Icon name="hugeicons:mail-01" size="24" />
-              <span class="ml-4">Drop a note</span>
+              <Icon name="hugeicons:mail-01" class="size-6 hover:scale-120 transition-transform" />
+              <span class="ml-4">Email Me</span>
             </LinkButton>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </Container>

@@ -1,22 +1,70 @@
 ---
 import "@/styles/global.css"
+import { siteConfig } from "@/site.config"
 import Header from "@/components/layout/Header.astro"
 import Footer from "@/components/layout/Footer.astro"
 import ScrollToTop from "@/components/widgets/ScrollToTop.astro"
 import { Font } from 'astro:assets';
----
 
+const {
+  title: defaultTitle,
+  description: defaultDescription,
+  url: siteUrl,
+  author,
+} = siteConfig;
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  robots?: string;
+}
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  image = `${siteUrl}/og-default.jpg`,
+  canonical = `${siteUrl}${Astro.url.pathname}`,
+  robots = 'index, follow',
+} = Astro.props;
+---
 <!doctype html>
 <html lang="en" data-theme="dark" class="scroll-pt-20 scroll-smooth antialiased">
 	<head>
+		<!-- Meta tags -->
+		<title>{title}</title>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="robots" content={robots} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<link rel="canonical" href={canonical} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content={defaultTitle} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:creator" content="@roadmapstudio" /> <!-- Replace if needed -->
+    <meta name="twitter:site" content="@roadmapstudio" />     <!-- Replace if needed -->
+
+		<!-- Astro Experimental Fonts -->
 		<Font cssVariable="--font-primary" preload />
 		<Font cssVariable="--font-secondary" preload />
 		<Font cssVariable="--font-code" preload />
+
 	</head>
 	<body class="relative ">
 		<div class="min-h-screen flex-auto">

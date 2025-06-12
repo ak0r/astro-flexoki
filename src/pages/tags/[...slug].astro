@@ -37,7 +37,10 @@ const isActive = (link: string) =>
   currentPath === link || currentPath === link + "/";
 
 ---
-<PageLayout>
+<PageLayout
+  title={`Posts tagged with #${tag}`}
+  description={`Explore posts tagged with #${tag}.`}
+>
   <Container outerClass="max-w-4xl mx-auto w-full px-6 py-2">
 
     <!-- Back button -->
