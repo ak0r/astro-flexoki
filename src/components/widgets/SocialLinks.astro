@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+import Link from '@/components/ui/Link.astro';
+import { siteConfig } from '@/site.config';
+const { socials } = siteConfig;
+---
+<div class="flex items-center gap-6">
+  {socials.map((link) => (
+    <Link
+      href={link.href}
+      class="text-content-muted hover:text-content-primary hover:scale-120 transition-transform"
+      rel="noopener noreferrer"
+      aria-label={`Follow on ${link.name}`}
+    >
+      <Icon name={link.icon} class="size-6" />
+    </Link>
+  ))}
+</div>

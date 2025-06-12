@@ -1,4 +1,7 @@
 ---
+import { siteConfig } from "@/site.config";
+const { settings } = siteConfig;
+
 type Props = {
   href: string;
   external?: boolean;
@@ -6,7 +9,6 @@ type Props = {
   group?: boolean;
   class?: string;
 };
-
 
 const {
   href,
@@ -17,6 +19,8 @@ const {
   ...rest
 } = Astro.props;
 
+const themeColor = settings?.accentColor || ''
+const hoverColorClass = `hover:text-${themeColor}`;
 ---
 
 <a
@@ -26,6 +30,7 @@ const {
   class:list={[
     "block",
     className,
+    hoverColorClass,
     group && "group",
   ]}
   {...rest}
