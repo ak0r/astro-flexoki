@@ -3,6 +3,7 @@ import ThemeSwitch from "@/components/widgets/ThemeSwitch.astro";
 import Container from '@/components/layout/Container.astro';
 import Link from '@/components/ui/Link.astro';
 import Button from "@/components/ui/Button.astro"
+import { Icon } from "astro-icon/components";
 import { siteConfig } from "@/site.config";
 const { siteLogo, nav, settings } = siteConfig;
 const currentPath = Astro.url.pathname;
@@ -57,7 +58,6 @@ const currentPath = Astro.url.pathname;
       <a class="flex items-center gap-2" href="/">
         <h3 class="font-bold">{siteConfig.title}</h3>
       </a>
-      
       
       <!-- Centered Links (only visible on sm and up) -->
       <div class="hidden sm:flex flex-1 justify-center items-center gap-4 text-base">

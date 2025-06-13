@@ -30,7 +30,7 @@ const isDraft = frontmatter.isDraft
   description={description}
   image={coverImage?.src || '/og-default.jpg'}
 >
-  <Container outerClass="max-w-5xl">
+  <Container outerClass="max-w-5xl px-6 py-2">
     <!-- Back button -->
     <BackButton
       title="All Articles"
@@ -68,9 +68,8 @@ const isDraft = frontmatter.isDraft
 
               <Badge
                 size="sm"
-                style="primary"
+                variant="default"
                 class="font-semibold text-muted-txt"
-                accent='orange'
               >
                 #{tag}
               </Badge>
@@ -87,8 +86,9 @@ const isDraft = frontmatter.isDraft
           class="shadow-xl"
         />
       )}
+    </section>
     <section class="markdown-content mb-6 post-content max-w-3xl mx-auto">
-      <Content components="CustomeImage"/>
+      <Content />
     </section>
   </Container>
 </PageLayout>
