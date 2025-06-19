@@ -43,14 +43,50 @@ export async function getAllPosts(): Promise<CollectionEntry<"blog">[]> {
  *  Note: This function doesn't filter draft posts, pass it the result of getAllPosts above to do so.
  */
 export function groupPostsByYear(posts: CollectionEntry<"blog">[]) {
-	return posts.reduce<Record<string, CollectionEntry<"blog">[]>>((acc, post) => {
-		const year = post.data.publishedDate.getFullYear();
+	const grouped = posts.reduce<Record<string, CollectionEntry<"blog">[]>>((acc, post) => {
+		const year = post.data.publishedDate.getFullYear().toString();
 		if (!acc[year]) {
 			acc[year] = [];
 		}
-		acc[year]?.push(post);
+		acc[year].push(post);
 		return acc;
 	}, {});
+
+	// Sort posts in each year by publishedDate descending
+	for (const year in grouped) {
+		grouped[year].sort(
+			(a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+		);
+	}
+
+	return grouped;
+}
+
+
+export function groupPostsByYearSorted(posts: CollectionEntry<"blog">[]) {
+	// Step 1: Group posts by year
+	const grouped = posts.reduce<Record<string, CollectionEntry<"blog">[]>>((acc, post) => {
+		const year = post.data.publishedDate.getFullYear().toString();
+		if (!acc[year]) {
+			acc[year] = [];
+		}
+		acc[year].push(post);
+		return acc;
+	}, {});
+
+	// Step 2: Sort posts within each year by publishedDate (descending)
+	for (const year in grouped) {
+		grouped[year].sort(
+			(a, b) => b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+		);
+	}
+
+	// Step 3: Return entries sorted by year (descending)
+	const sorted = Object.entries(grouped).sort(
+		([yearA], [yearB]) => parseInt(yearB) - parseInt(yearA)
+	);
+
+	return sorted; // [ [ '2025', [posts] ], [ '2024', [posts] ], ... ]
 }
 
 /** returns all tags created from posts (inc duplicate tags)

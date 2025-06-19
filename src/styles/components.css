@@ -24,7 +24,7 @@
     }
   }
   hr {
-    @apply opacity-10;
+    @apply opacity-10 my-5;
   }
 
   /* image & figure style */
