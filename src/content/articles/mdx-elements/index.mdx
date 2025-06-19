@@ -1,8 +1,8 @@
 ---
 title: "Elements of the Astro Flexoki blog theme"
 description: "This page demonstrate some basic elements and typography which you will use frequently within your site."
-coverImage: "https://picsum.photos/900/600?random=1.webp"
-publishedDate: 2022-10-01
+coverImage: "cover.jpg"
+publishedDate: 2025-12-31
 tags: ["elements", "image", "gallery", "markdown"]
 ---
 
@@ -106,6 +106,8 @@ Themes are `info` | `warning` | `success` | `error`. <br/>
 You can use <a href="https://emojipedia.org/" target="_blank" rel="noopener noreferrer">emoji</a> as icon. <br/> if you keep the `icon=""`; it will be default icon. and if you didn't set it; no icon will be shown. <br/>
 **You can use Markdown and HTML both inside callout.**
 
+##### Callout component is not yet available
+
 ```html
 <Callout title="Astro Is Awesome" theme="info" icon="🔥">
   **Create your own platform on the web.** Astro is a tool for building static websites with your favorite JS framework. But it will ship zero JavaScript to the browser 🤯.
@@ -121,10 +123,61 @@ You can use <a href="https://emojipedia.org/" target="_blank" rel="noopener nore
 
 <hr/>
 
-### Image
+### Image with internal path
 
-<hr/>
+<CustomImage
+  src="cover.jpg"
+  basePath="articles/mdx-elements"
+  alt="Being with nature"
+  width={300}
+  height={200}
+  class="shadow-md"
+/>
 
-### Gallery
+<hr />
 
-<hr/>
+### Image with external path
+<CustomImage
+    src="https://picsum.photos/900/600?random=1.webp"
+    alt="Being with nature"
+    width={300}
+    height={200}
+    size="wide"
+  />
+
+<hr />
+
+### Gallery with external images
+<Gallery galleryName="External Images" variant="masonry">
+  <CustomImage
+    src="https://picsum.photos/900/600?random=1.webp"
+    alt="Being with nature"
+    width={900}
+    height={600}
+  />
+  <CustomImage
+    src="https://picsum.photos/900/1200?random=2.webp"
+    alt="Being with nature"
+    width={900}
+    height={900}
+  />
+  <CustomImage
+    src="https://picsum.photos/900/900?random=3.webp"
+    alt="Being with nature"
+    width={300}
+    height={200}
+  />
+  <CustomImage
+    src="https://picsum.photos/900/600?random=4.webp"
+    alt="Being with nature"
+    width={300}
+    height={400}
+  />
+</Gallery>
+
+<hr />
+
+### Gallery with internal images
+<Gallery galleryName="Gallery" galleryPath="mdx-elements/gallery" variant="masonry" />
+
+<hr />

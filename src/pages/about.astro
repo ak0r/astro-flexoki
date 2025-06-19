@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import LinkButton from "@/components/ui/LinkButton.astro";
 import BackButton from '@/components/widgets/BackButton.astro';
 import SocialLinks from "@/components/widgets/SocialLinks.astro";
+import CustomImage from "@/components/ui/CustomImage.astro";
 ---
 
 <PageLayout
@@ -20,7 +21,11 @@ import SocialLinks from "@/components/widgets/SocialLinks.astro";
       <!-- Avatar -->
       <div class="lg:pl-20">
         <div class="p-2 lg:max-w-none max-w-xs">
-          <img class="h-full object-cover rounded-lg rotate-3 aspect-square shadow-md" loading="lazy" src="https://picsum.photos/400/400?random=1.webp" alt="Being with nature.">
+          <CustomImage
+            src="https://picsum.photos/400/400?random=1.webp"
+            alt="Being with nature"
+            class="rotate-3 aspect-square shadow-md"
+          />
         </div>
       </div>
       <!-- About Me -->

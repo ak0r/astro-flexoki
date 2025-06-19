@@ -1,0 +1,50 @@
+---
+import CustomImage from "@/components/ui/CustomImage.astro";
+import { loadGalleryImages } from "@/utils/galleryFunctions";
+
+interface Props {
+  galleryName: string;
+  galleryDescription?: string;
+  galleryPath?: string;
+  variant?: "grid" | "masonry";
+}
+
+const {
+  galleryName,
+  galleryDescription,
+  galleryPath,
+  variant = "grid",
+} = Astro.props;
+
+const useSlot = !!Astro.slots.default;
+const internalImages = !useSlot && galleryPath
+  ? await loadGalleryImages(galleryPath)
+  : [];
+---
+
+{galleryDescription && (
+  <p class="mb-4 text-sm text-ao-text-muted text-center">{galleryDescription}</p>
+)}
+
+<div
+  class={
+    variant === "masonry"
+      ? "columns-1 sm:columns-2 md:columns-3 [&>*]:mb-5"
+      : "grid grid-cols-2 md:grid-cols-3 gap-5"
+  }
+>
+  {useSlot ? (
+    <slot />
+  ) : (
+    internalImages.map((image, idx) => (
+      <CustomImage
+        key={idx}
+        src={image}
+        alt={image.alt ?? galleryName}
+        width={image.width}
+        height={image.height}
+        class="rounded-md"
+      />
+    ))
+  )}
+</div>

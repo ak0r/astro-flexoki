@@ -5,6 +5,7 @@ import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
 
 import expressiveCode from "astro-expressive-code";
+import AutoImport from 'astro-auto-import';
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,6 +43,12 @@ export default defineConfig({
   integrations: [
     icon(), 
     expressiveCode(),
+    AutoImport({
+      imports: [
+        "@/components/ui/CustomImage.astro",
+        "@/components/ui/Gallery.astro",
+      ],
+    }),
     mdx()
   ],
 });
