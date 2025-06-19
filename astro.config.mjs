@@ -46,6 +46,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         "@/components/ui/CustomImage.astro",
+        "@/components/ui/Gallery.astro",
       ],
     }),
     mdx()

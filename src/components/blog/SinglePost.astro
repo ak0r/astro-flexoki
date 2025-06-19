@@ -18,6 +18,7 @@ const { post, isSearchable = false } = Astro.props
 const { data: frontmatter } = post
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
+
 const title = frontmatter.title
 const description = frontmatter.description
 const coverImage = frontmatter.coverImage
